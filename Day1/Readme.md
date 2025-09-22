@@ -236,6 +236,6 @@ write_verilog good_mux_netlist.v
 - You explored Yosys and learned why gate libraries have various flavors.
 
 
-<p align="Center">
+<div align="Center">
 <h2>🎉 End of Day 1 ✨</h2>
-</p>
+</div>
