@@ -26,6 +26,13 @@
 
 ## Table of Content
 1. Simulator, Design and Testbench
+2.Introduction to Iverilog
+3. Lab: Simulating a 2-to-1 Multiplexer
+4. Verilog Code Analysis
+5. Introduction to Yosys and Gate Libraries
+6. Synthesis Lab activity with Yosys
+7. Summary
+
 
 ---
 
@@ -56,7 +63,7 @@ A **Testbench** is used to apply inputs to the design, monitor outputs, and veri
 
 ---
 
-## 📟 Introduction to Iverilog
+## 📟 2.Introduction to Iverilog
 
 - 🚀 Icarus Verilog (iverilog) is a powerful open-source Verilog simulation and synthesis tool
 - 💻 It's a free and lightweight simulator that compiles Verilog HDL code for digital circuit simulation
