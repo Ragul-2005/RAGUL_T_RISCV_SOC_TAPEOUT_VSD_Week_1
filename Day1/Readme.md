@@ -189,7 +189,7 @@ show
 ```bash
 # Write Netlist File
 write_verilog good_mux_netlist.v
-'''
+```
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Netlist.png?raw=true" width="600"/>
 </p>
