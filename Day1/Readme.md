@@ -132,24 +132,24 @@ Yosys is an open-source framework for Verilog RTL synthesis. It’s mainly used 
 
 #### ⚡ Faster Cells vs Slower Cells
 
-🔌 Load in Digital Logic circuit → Capacitance
-⚡ Faster the charging/discharging of capacitance → Lesser the cell delay
-🚀 To charge/discharge the capacitance fast, we need transistors capable of sourcing more current
-📏 Wider transistors → Low Delay → More Area and Power as well!!
-🔻 Narrow transistors → More Delay → Less Area and Power
-⚠️ Faster cells don't come free, they come at penalty of area and power
+- 🔌 Load in Digital Logic circuit → Capacitance
+- ⚡ Faster the charging/discharging of capacitance → Lesser the cell delay
+- 🚀 To charge/discharge the capacitance fast, we need transistors capable of sourcing more current
+- 📏 Wider transistors → Low Delay → More Area and Power as well!!
+- 🔻 Narrow transistors → More Delay → Less Area and Power
+- ⚠️ Faster cells don't come free, they come at penalty of area and power
 
 #### 🎯 Selection of Cells
 
-🎛️ Need to guide the Synthesizer to select the flavor of cells that is optimum for the implementation of logic circuit
-⚡ More use of faster cells
-❌ Bad circuit in terms of Power and Area
-⚠️ Hold time violations??
-🐌 More use of slower cells
-📉 Sluggish circuit, may not meet the performance need
-🎯 The guidance offered to the Synthesizer → "Constraints"
-
-#### Verify the Synthesis
+- 🎛️ Need to guide the Synthesizer to select the flavor of cells that is optimum for the implementation of logic circuit
+- ⚡ More use of faster cells
+- ❌ Bad circuit in terms of Power and Area
+- ⚠️ Hold time violations??
+- 🐌 More use of slower cells
+- 📉 Sluggish circuit, may not meet the performance need
+- 🎯 The guidance offered to the Synthesizer → "Constraints"
+ 
+## Verify the Synthesis
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Synthesis_Verify.png?raw=true" width="600"/>
 </p>
@@ -159,7 +159,7 @@ Yosys is an open-source framework for Verilog RTL synthesis. It’s mainly used 
 
 ### Step by Step Yosys Flow
 
-''' bash
+``` bash
 # Invoke Yosys
 yosys
 ```
