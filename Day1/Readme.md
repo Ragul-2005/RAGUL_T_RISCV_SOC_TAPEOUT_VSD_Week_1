@@ -56,3 +56,43 @@ A **Testbench** is used to apply inputs to the design, monitor outputs, and veri
 </div>
 
   ---
+
+  ## 3. Lab: Simulating a 2-to-1 Multiplexer
+
+  ### Step 1 Clone SKY130 Files
+  ```bash
+mkdir VLSI
+cd VLSI
+git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
+cd sky130RTLDesignAndSynthesisWorkshop/verilog_files
+```
+### Step 2 Simulate the Design 
+``` bash
+# Compile the design and testbech
+iverilog good_mux.v tb_good_mux.v
+
+# Run the Simulaion
+./a.out
+```
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/RTLCode_Run.png?raw=true" width="600"/>
+</p>
+
+<div align="center">
+   <b>Linux Run Command</b>
+</div>
+
+``` bash
+# View Waveform
+gtkwave tb_good_mux.vcd
+'''
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Output_Mux.png?raw=true" width="600"/>
+</p>
+
+<div align="center">
+   <b>2:1 Mux Waveform</b>
+</div>
+
+---
+
