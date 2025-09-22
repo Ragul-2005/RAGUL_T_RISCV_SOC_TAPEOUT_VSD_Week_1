@@ -48,7 +48,7 @@ A **Testbench** is used to apply inputs to the design, monitor outputs, and veri
 - 🌟 Cross-platform support for Windows, Linux, and macOS making it accessible to all developers
 
   <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Stimulator_Workflow.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Iverilog_Simulation_Flow.png?raw=true" width="600"/>
 </p>
 
 <div align="center">
