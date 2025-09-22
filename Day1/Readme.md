@@ -27,7 +27,7 @@ A **Testbench** is used to apply inputs to the design, monitor outputs, and veri
 - ⚡Upon changes to the input, the output is evaluated 
 - 📊If there's no change in input → no change in output 
 - 🔄The simulator is always looking for change in the value of input to trigger evaluation
-p align="center">
+<p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Stimulator_Workflow.png?raw=true" width="600"/>
 </p>
 
@@ -46,5 +46,13 @@ p align="center">
 - 📊 Works seamlessly with GTKWave to generate and view waveforms through VCD files
 - 🎯 Perfect for educational purposes and professional RTL design verification workflows
 - 🌟 Cross-platform support for Windows, Linux, and macOS making it accessible to all developers
+
+  <p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Stimulator_Workflow.png?raw=true" width="600"/>
+</p>
+
+<div align="center">
+   <b>IVerilog Simulation WorkFlow</b>
+</div>
 
   ---
