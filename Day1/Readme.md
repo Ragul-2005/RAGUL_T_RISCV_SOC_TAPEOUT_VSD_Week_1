@@ -27,9 +27,24 @@ A **Testbench** is used to apply inputs to the design, monitor outputs, and veri
 - ⚡Upon changes to the input, the output is evaluated 
 - 📊If there's no change in input → no change in output 
 - 🔄The simulator is always looking for change in the value of input to trigger evaluation
+p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Stimulator_Workflow.png?raw=true" width="600"/>
+</p>
 
- <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Stimulator_Workflow.png?raw=true" width="600"/>
-
-
+<div align="center">
+   <b>Simulator WorkFlow</b>
+</div>
 
 ---
+
+## 📟 Introduction to Iverilog
+
+- 🚀 Icarus Verilog (iverilog) is a powerful open-source Verilog simulation and synthesis tool
+- 💻 It's a free and lightweight simulator that compiles Verilog HDL code for digital circuit simulation
+- 🔧 Iverilog supports IEEE 1364 Verilog standards and provides comprehensive simulation capabilities
+- ⚡ The tool generates executable simulation files from your Verilog design and testbench code
+- 📊 Works seamlessly with GTKWave to generate and view waveforms through VCD files
+- 🎯 Perfect for educational purposes and professional RTL design verification workflows
+- 🌟 Cross-platform support for Windows, Linux, and macOS making it accessible to all developers
+
+  ---
