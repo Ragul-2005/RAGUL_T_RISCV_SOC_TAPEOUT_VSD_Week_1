@@ -96,3 +96,101 @@ gtkwave tb_good_mux.vcd
 
 ---
 
+## 4. Verilog Code Analysis
+ ``` bash
+#To view the Code
+gvim tb_good_mux.v -o good_mux.v
+```
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/MUX_Code.png?raw=true" width="600"/>
+</p>
+
+---
+## 5. Introduction to Yosys and Gate Libraries
+
+Yosys is an open-source framework for Verilog RTL synthesis. It’s mainly used in digital design to convert high-level Verilog or SystemVerilog descriptions into a gate-level netlist that can be used for FPGA or ASIC implementation.
+
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Yosys_Setup.png?raw=true" width="600"/>
+</p>
+
+### Features
+- 🚀 RTL Synthesis: Converts RTL (Verilog/SystemVerilog) to gate-level netlists. Supports common constructs like always, assign, if, case, for.
+- ⚡ Logic Optimization: Performs optimizations like constant propagation, boolean simplification, and retiming for flip-flops to reduce area and improve speed.
+- 🎯 Technology Mapping: Maps generic RTL logic to a specific target technology library (ASIC or FPGA cells).
+- ✅ Formal Verification Support: Can be used with formal verification tools to check equivalence between RTL and netlist.
+- 🌐 Support for Multiple Backends: Can target different formats for simulation, FPGAs, or ASICs (Verilog, BLIF, EDIF, etc.).
+- 🏗️ Hierarchical Design Support: Handles modules and hierarchical designs efficiently, maintaining structure during synthesis.
+- 🔓 Open-Source Extensible: You can extend Yosys with scripts or plugins for custom synthesis flows.
+
+### Commands in yosys 
+- <b>read_verilog</b>: Reads your RTL Verilog source files into the synthesis tool.
+- <b>read_liberty</b>: Reads the standard cell library (.lib) files that describe the timing, power, and area characteristics of the technology you are targeting.
+- <b>write_verilog</b>: Writes out the synthesized RTL netlist after optimizations are applied.
+
+### Why Do Libraries Have Different Gate “Flavors”?
+
+#### ⚡ Faster Cells vs Slower Cells
+
+🔌 Load in Digital Logic circuit → Capacitance
+⚡ Faster the charging/discharging of capacitance → Lesser the cell delay
+🚀 To charge/discharge the capacitance fast, we need transistors capable of sourcing more current
+📏 Wider transistors → Low Delay → More Area and Power as well!!
+🔻 Narrow transistors → More Delay → Less Area and Power
+⚠️ Faster cells don't come free, they come at penalty of area and power
+
+#### 🎯 Selection of Cells
+
+🎛️ Need to guide the Synthesizer to select the flavor of cells that is optimum for the implementation of logic circuit
+⚡ More use of faster cells
+❌ Bad circuit in terms of Power and Area
+⚠️ Hold time violations??
+🐌 More use of slower cells
+📉 Sluggish circuit, may not meet the performance need
+🎯 The guidance offered to the Synthesizer → "Constraints"
+
+#### Verify the Synthesis
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Synthesis_Verify.png?raw=true" width="600"/>
+</p>
+---
+
+## 6. Synthesis Lab activity with Yosys
+
+### Step by Step Yosys Flow
+
+''' bash
+# Invoke Yosys
+yosys
+```
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Yosys.png?raw=true" width="600"/>
+</p>
+``` bash
+# Read the Library file
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Read the verilog file
+read_verilog good_mux.v
+
+# Synthesis Design
+synth -top good_mux
+
+# Technology mapping
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Visualize the gate-level netlist 
+show
+```
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Gate_level.png?raw=true" width="600"/>
+</p>
+
+```bash
+# Write Netlist File
+write_verilog good_mux_netlist.v
+'''
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Netlist.png?raw=true" width="600"/>
+</p>
+
