@@ -237,5 +237,5 @@ write_verilog good_mux_netlist.v
 
 
 <p align="Center">
-<b>End of Day 1</b>
+<h2>🎉 End of Day 1 ✨</h2>
 </p>
