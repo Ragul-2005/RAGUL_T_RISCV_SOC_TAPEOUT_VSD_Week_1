@@ -226,6 +226,7 @@ write_verilog good_mux_netlist.v
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Netlist.png?raw=true" width="600"/>
 </p>
+---
 
 ## 7. Summary
 
@@ -234,7 +235,7 @@ write_verilog good_mux_netlist.v
 - Learned Tools iverilog, GTKWave, Yosys.
 - You analyzed the 2-to-1 mux code.
 - You explored Yosys and learned why gate libraries have various flavors.
-
+---
 
 <div align="Center">
 <h2>🎉 End of Day 1 ✨</h2>
