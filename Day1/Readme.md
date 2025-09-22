@@ -85,7 +85,7 @@ iverilog good_mux.v tb_good_mux.v
 ``` bash
 # View Waveform
 gtkwave tb_good_mux.vcd
-'''
+```
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Output_Mux.png?raw=true" width="600"/>
 </p>
