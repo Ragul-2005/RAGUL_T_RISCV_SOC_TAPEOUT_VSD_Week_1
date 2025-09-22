@@ -130,6 +130,10 @@ gvim tb_good_mux.v -o good_mux.v
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/MUX_Code.png?raw=true" width="600"/>
 </p>
+### Working
+Inputs: i0, i1 (data), sel (select line)
+Output: y (registered output)
+Logic: If sel is 1, y gets i1; if sel is 0, y gets i0.
 
 ---
 ## 5. Introduction to Yosys and Gate Libraries
@@ -234,3 +238,4 @@ write_verilog good_mux_netlist.v
 
 <p align="Center">
 <b>End of Day 1</b>
+</p>
