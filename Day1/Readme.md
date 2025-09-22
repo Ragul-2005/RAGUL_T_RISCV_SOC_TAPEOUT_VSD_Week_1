@@ -166,6 +166,7 @@ yosys
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Yosys.png?raw=true" width="600"/>
 </p>
+
 ``` bash
 
 # Read the Library file
@@ -182,7 +183,7 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 # Visualize the gate-level netlist 
 show
-``
+```
 
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Gate_level.png?raw=true" width="600"/>
