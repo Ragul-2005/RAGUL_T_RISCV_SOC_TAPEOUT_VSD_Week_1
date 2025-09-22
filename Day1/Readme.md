@@ -28,4 +28,10 @@ A **Testbench** is used to apply inputs to the design, monitor outputs, and veri
 - 📊If there's no change in input → no change in output 
 - 🔄The simulator is always looking for change in the value of input to trigger evaluation
 
+  <p align="center">
+  <img src="./Stimulus%20Generator" 
+       alt="GTKWave Installed" width="600"/>
+</p>
+
+
 ---
