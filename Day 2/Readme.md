@@ -81,6 +81,103 @@ gvim ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 </div>
 
 ---
+## 2. Hierarchical vs Flatten Synthesis 🏗️
+
+### 🏗️ Hierarchical Synthesis
+
+Hierarchical synthesis is a method where a digital design is synthesized by preserving its module hierarchy instead of flattening everything into a single block. It enables modular reuse, faster compilation, and easier debugging, but may reduce global optimization compared to flat synthesis.
+
+### 🔧 Features
+- 📦 **Preserves Design Hierarchy** - Maintains original module boundaries
+- 🔄 **Module-by-Module Processing** - Synthesizes each block independently  
+- 🎯 **Boundary Constraints** - Respects interface definitions between modules
+- 📊 **Incremental Compilation** - Re-synthesize only modified modules
+
+### ✅ Advantages
+- 🚀 **Faster Compilation** - Parallel processing of independent modules
+- 🐛 **Better Debugging** - Easy to trace issues to specific modules
+- 🔄 **Incremental Updates** - Modify single blocks without full re-synthesis
+- 💾 **Memory Efficient** - Lower peak memory usage during synthesis
+- 👥 **Team Development** - Multiple engineers can work on different blocks
+- 🎯 **Design Reuse** - Modules can be easily ported to other projects
+
+### ❌ Disadvantages
+- 🚧 **Suboptimal Optimization** - Cannot optimize across module boundaries
+- ⏰ **Timing Challenges** - Interface timing may not be globally optimal
+- 📊 **Area Overhead** - Duplicate logic cannot be shared between modules
+- 🔌 **Interface Constraints** - Fixed I/O requirements limit flexibility
+- 🎯 **Local Optimization Only** - Misses global optimization opportunities
+
+### Method for Hierarchical Synthesis
+
+```bash
+# Load the standard cell library in Liberty format (for mapping and timing)
+read_liberty -lib ../Lib/sky130_fd_sc_hd__tt_025C-1v80.lib
+
+# Read the Verilog source file (design with multiple modules)
+read_verilog multiple_modules.v
+
+# Run synthesis with the specified top module
+synth -top multiple_modules
+
+# Perform technology mapping using the standard cell library
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Show the synthesized design (schematic viewer)
+show multiple_modules
+
+# Write out the synthesized Verilog netlist
+write_verilog multiple_modules.v
+```
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/Hierarchical%20Synthesis.png?raw=true" width="600"/>
+</p>
+<div align="center>
+<h3> Hierarchical Synthesis</h3>
+  </div>
+
+---
+
+## 🎯 Flatten Synthesis
+Flatten synthesis is a method where the synthesis tool removes the design hierarchy and combines all modules into a single-level netlist. This allows maximum global optimization for area, speed, and power, but makes debugging harder and prevents module-level reuse.
+
+### 🔧 Features
+- 🌐 **Single Design Unit** - Flattens entire hierarchy into one module
+- 🔄 **Global Optimization** - Cross-boundary logic optimization enabled
+- 📊 **Unified Netlist** - Single flat netlist output
+- 🎯 **Complete Logic Sharing** - Maximum resource sharing potential
+
+### ✅ Advantages
+- 🎯 **Global Optimization** - Best possible timing and area results
+- ⏰ **Superior Timing Closure** - No hierarchical timing boundaries
+- 📦 **Maximum Area Efficiency** - Optimal logic sharing and reduction
+- 🔄 **Cross-Module Logic Sharing** - Duplicate functions eliminated
+- 📊 **Better QoR (Quality of Results)** - Optimal Power, Performance, Area
+- 🎯 **Holistic View** - Synthesis sees complete design context
+
+### ❌ Disadvantages
+- 🐌 **Slower Compilation** - Must process entire design together
+- 💾 **High Memory Usage** - Peak memory requirements increase significantly
+- 🐛 **Difficult Debugging** - Harder to trace issues in flat netlist
+- 🔄 **Full Re-synthesis** - Any change requires complete re-compilation
+- 📊 **Scalability Issues** - May not handle very large designs
+- ⏱️ **Longer Runtimes** - Exponential increase with design size
+
+---
+
+## 📊 Comparison Summary
+
+| **Aspect** | **Hierarchical** 🏗️ | **Flat** 🎯 |
+|------------|---------------------|-------------|
+| **Compilation Time** | 🚀 Fast | 🐌 Slow |
+| **Memory Usage** | 💾 Low | 💾 High |
+| **Optimization Quality** | 📊 Local | 🎯 Global |
+| **Debugging** | 🐛 Easy | 🐛 Difficult |
+| **Timing Closure** | ⏰ Challenging | ⏰ Better |
+| **Area Efficiency** | 📦 Good | 📦 Optimal |
+| **Design Changes** | 🔄 Incremental | 🔄 Full rebuild |
+
+---
 
 
 
