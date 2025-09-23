@@ -76,6 +76,12 @@ gvim ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/library.png?raw=true" width="600"/>
 </p>
+<div align="center">
+   <b>.lib Library File</b>
+</div>
+
+---
+
 
 
 
