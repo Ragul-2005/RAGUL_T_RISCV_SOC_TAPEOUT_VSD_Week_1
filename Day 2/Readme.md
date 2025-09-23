@@ -169,7 +169,35 @@ Flatten synthesis is a method where the synthesis tool removes the design hierar
 - ⏱️ **Longer Runtimes** - Exponential increase with design size
 
 - ### Method for Flatten Synthesis
+
   
+```bash
+# Load the standard cell library in Liberty format (for mapping and timing)
+read_liberty -lib ../Lib/sky130_fd_sc_hd__tt_025C-1v80.lib
+
+# Read the Verilog source file (design with multiple modules)
+read_verilog multiple_modules.v
+
+# Run synthesis with the specified top module
+synth -top multiple_modules
+
+# Perform technology mapping using the standard cell library
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+#To covert Hierarchiarly to Flatten
+flatten
+
+# Show the synthesized design (schematic viewer)
+show multiple_modules
+
+# Write out the synthesized Verilog netlist
+write_verilog multiple_modules.v
+```
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/Flatten%20Synthesis.png?raw=true" width="600"/>
+</p>
+<div align="center">
+<h3> Flatten Synthesis</h3>
+  </div>
 
 ---
 
@@ -190,6 +218,46 @@ Flatten synthesis is a method where the synthesis tool removes the design hierar
 
 ---
 
+## 3. Submodule Synthesis
+Submodule synthesis is a hierarchical synthesis approach in digital design where individual modules (submodules) of a system are synthesized separately before being integrated into the top-level design. Instead of flattening the entire design, each submodule—like an ALU, multiplier, or memory block—is compiled into a technology-mapped netlist independently. This preserves modularity, allows reuse of pre-synthesized blocks, speeds up compilation, and makes debugging easier, though it may limit global optimizations across module boundaries compared to flat synthesis.
+
+### Features
+- ⚙️ Modularity → Each submodule is synthesized independently, making the design easier to manage.
+- 🔁 Reusability → Pre-synthesized blocks (e.g., ALU, multiplier) can be reused across multiple projects.
+- ⏱️ Faster compilation → Only modified submodules need to be re-synthesized, reducing runtime.
+- 🐞 Isolation for debugging → Errors and timing violations can be checked at the submodule level.
+- 📦 Supports IP integration → Third-party or pre-verified IP cores can be dropped in as black boxes.
+- 📈 Scalability → Well-suited for large ASIC/FPGA projects where multiple teams work on different modules.
+
+### Implementation of submodule Synthesis
+
+```bash
+# Load the standard cell library in Liberty format (for mapping and timing)
+read_liberty -lib ../Lib/sky130_fd_sc_hd__tt_025C-1v80.lib
+
+# Read the Verilog source file (design with multiple modules)
+read_verilog multiple_modules.v
+
+# Run synthesis with the specified top module
+synth -top sub_module1
+
+# Perform technology mapping using the standard cell library
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+
+# Show the synthesized design (schematic viewer)
+show 
+
+
+```
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/Submodule%20Synthesis.png?raw=true" width="600"/>
+</p>
+<div align="center">
+<h3> Submodule Synthesis</h3>
+  </div>
+
+---
 
 
 
