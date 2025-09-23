@@ -132,7 +132,7 @@ write_verilog multiple_modules.v
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/Hierarchical%20Synthesis.png?raw=true" width="600"/>
 </p>
-<div align="center>
+<div align="center">
 <h3> Hierarchical Synthesis</h3>
   </div>
 
