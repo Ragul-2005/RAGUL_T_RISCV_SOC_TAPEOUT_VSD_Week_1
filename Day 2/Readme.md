@@ -171,6 +171,7 @@ Flatten synthesis is a method where the synthesis tool removes the design hierar
 
 ## 📊 Comparison Summary
 <div align="center">
+  
 | **Aspect** | **Hierarchical** 🏗️ | **Flat** 🎯 |
 |------------|---------------------|-------------|
 | **Compilation Time** | 🚀 Fast | 🐌 Slow |
@@ -180,6 +181,7 @@ Flatten synthesis is a method where the synthesis tool removes the design hierar
 | **Timing Closure** | ⏰ Challenging | ⏰ Better |
 | **Area Efficiency** | 📦 Good | 📦 Optimal |
 | **Design Changes** | 🔄 Incremental | 🔄 Full rebuild |
+
 </div>
 
 ---
