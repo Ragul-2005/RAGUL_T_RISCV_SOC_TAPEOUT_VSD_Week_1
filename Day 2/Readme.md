@@ -3,6 +3,6 @@
   <div align="justify">
 
   <p align="justify">
-  <b></b>Day 2 focuses on advanced synthesis concepts and optimization techniques essential for digital design implementation. This session covers timing characterization, synthesis methodologies, and coding best practices for sequential elements.</p>
+  <b>Day 2 focuses on advanced synthesis concepts and optimization techniques essential for digital design implementation. This session covers timing characterization, synthesis methodologies, and coding best practices for sequential elements.</b>
   </p>
   
