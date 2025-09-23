@@ -40,12 +40,14 @@ sky130_[source]_[type]_[name]__[corner]
 ## 📊 TT Corner Analysis
 
 ### 🌡️ Typical-Typical (TT) Corner Characteristics
+<div align="center">
 | **Parameter** | **Value** | **Description** |
 |---------------|-----------|-----------------|
 | **Process** | 😐 TT (Typical-Typical) | Nominal fabrication conditions |
 | **Temperature** | 🌡️ 25°C | Room temperature operation |
 | **Voltage** | ⚡ 1.8V | Nominal supply voltage |
 | **Use Case** | 📊 Baseline analysis | Standard operating conditions |
+</div>
 
 
 ## 🔧 Liberty File Structure: `sky130_fd_sc_hd__tt_025C_1v80.lib`
@@ -166,7 +168,7 @@ Flatten synthesis is a method where the synthesis tool removes the design hierar
 ---
 
 ## 📊 Comparison Summary
-
+<div align="center">
 | **Aspect** | **Hierarchical** 🏗️ | **Flat** 🎯 |
 |------------|---------------------|-------------|
 | **Compilation Time** | 🚀 Fast | 🐌 Slow |
@@ -176,6 +178,7 @@ Flatten synthesis is a method where the synthesis tool removes the design hierar
 | **Timing Closure** | ⏰ Challenging | ⏰ Better |
 | **Area Efficiency** | 📦 Good | 📦 Optimal |
 | **Design Changes** | 🔄 Incremental | 🔄 Full rebuild |
+</div>
 
 ---
 
