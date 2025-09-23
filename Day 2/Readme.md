@@ -41,12 +41,14 @@ sky130_[source]_[type]_[name]__[corner]
 
 ### 🌡️ Typical-Typical (TT) Corner Characteristics
 <div align="center">
+  
 | **Parameter** | **Value** | **Description** |
 |---------------|-----------|-----------------|
 | **Process** | 😐 TT (Typical-Typical) | Nominal fabrication conditions |
 | **Temperature** | 🌡️ 25°C | Room temperature operation |
 | **Voltage** | ⚡ 1.8V | Nominal supply voltage |
 | **Use Case** | 📊 Baseline analysis | Standard operating conditions |
+
 </div>
 
 
