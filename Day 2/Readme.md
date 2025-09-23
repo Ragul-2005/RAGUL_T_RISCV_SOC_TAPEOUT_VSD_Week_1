@@ -10,7 +10,8 @@
 ## Table of Content
 1. Introduction to Timing Libraries (.libs) ⏰
 2. Hierarchical vs Flat Synthesis 🏗️
-3. Various Flop Coding Styles and Optimization 🔄
+3. Submodule Synthesis
+4. Various Flop Coding Styles and Optimization 🔄
 
 ---
 
@@ -166,6 +167,9 @@ Flatten synthesis is a method where the synthesis tool removes the design hierar
 - 🔄 **Full Re-synthesis** - Any change requires complete re-compilation
 - 📊 **Scalability Issues** - May not handle very large designs
 - ⏱️ **Longer Runtimes** - Exponential increase with design size
+
+- ### Method for Flatten Synthesis
+  
 
 ---
 
