@@ -297,6 +297,37 @@ show
    - Reset input is checked only at the active clock edge.  
    - <code>reset = 1</code> → Q becomes 0, but only on clock edge.  
    - Used for controlled reset aligned with the clock.  
+## 🔹 Why Flip-Flops Are Used Between Combinational Circuits (Delay Perspective)
+
+
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/Combinational%20circuit.png?raw=true" width="600"/>
+</p>
+
+1. ⌛ <strong>Control Propagation Delay (Avoid Accumulation)</strong>  
+   - Long chains of combinational logic → large delay.  
+   - Without flip-flops, total delay may exceed <code>clock period</code>.  
+   - Flip-flops break logic into smaller stages (pipelining), so each stage delay < clock cycle.  
+
+2. 🧠 <strong>Ensure Data Stability (Setup/Hold)</strong>  
+   - Flip-flops sample inputs only at <code>clock edges</code>.  
+   - Glitches/hazards in combinational circuits don’t affect final result.  
+   - Output is stable at clock boundaries.  
+
+3. 🔗 <strong>Synchronize Signals</strong>  
+   - Different paths → different delays (skew).  
+   - Flip-flops align signals at the same <code>clock boundary</code>.  
+   - Prevents race conditions & metastability.  
+
+4. 🚀 <strong>Increase Maximum Clock Frequency</strong>  
+   - Inserting flip-flops reduces the <code>critical path</code>.  
+   - Allows design to run at higher clock speeds.  
+   - Each stage delay becomes smaller → faster operation.  
+
+5. 🛡️ <strong>Maintain Predictable Timing</strong>  
+   - Combinational delay changes with <code>PVT (Process, Voltage, Temperature)</code>.  
+   - Flip-flops act as timing checkpoints.  
+   - Ensures valid outputs at every clock cycle.  
 
 
 ---
