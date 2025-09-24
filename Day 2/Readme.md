@@ -368,7 +368,7 @@ show
 3. # View Waveform:
    gtkwave <filename>.vcd
 ```
-<b>filenmae</b>:  dff_asyncres, dff_asyncres_set, dff_syncres
+<b>filename</b>:  dff_asyncres, dff_asyncres_set, dff_syncres
 
 1️⃣ DFF with Asynchronous Reset (dff_asyncres)
 
@@ -420,8 +420,8 @@ show
    
    show
 ```
-<b>filenmae</b>:  dff_asyncres, dff_asyncres_set, dff_syncres
-<b>modulename</b>:  dff_asyncres, dff_asyncres_set, dff_syncres
+- <b>filename</b>:  dff_asyncres, dff_asyncres_set, dff_syncres
+- <b>modulename</b>:  dff_asyncres, dff_asyncres_set, dff_syncres
 
 ---
 
