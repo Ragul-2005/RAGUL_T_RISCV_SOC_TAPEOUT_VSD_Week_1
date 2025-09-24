@@ -1,4 +1,4 @@
-<div align="center">
+<img width="1847" height="318" alt="image" src="https://github.com/user-attachments/assets/6427f65f-a376-4ab6-9d11-0ac0a2a60684" /><div align="center">
   <h1>🚀 Day 2 - Timing Libraries, Hierarchical vs Flat Synthesis, and Efficient Flop Coding Styles ⚡</h1>
   </div>
 
@@ -335,28 +335,62 @@ show
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_asyncres.png?raw=true" width="600"/>
 </p>
-<div align="center">
-<h3> Submodule Synthesis</h3>
-  </div>
+
+- **Asynchronous reset**: Overrides clock, setting q to 0 immediately.
+- **Edge-triggered**: Captures d on rising clock edge if reset is low.
 
 2️⃣ DFF with Asynchronous Reset and Set (dffasyncres_set)
 
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_async_set.png?raw=true" width="600"/>
 </p>
-<div align="center">
-<h3> Submodule Synthesis</h3>
-  </div>
+
+- **Asynchronous set**: Overrides clock, setting q to 1 immediately.
 
  3️⃣ DFF with Synchronous Reset (dffsyncres)
  
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_syncres.png?raw=true" width="600"/>
 </p>
-<div align="center">
-<h3> Submodule Synthesis</h3>
-  </div>
+
+- **Synchronous reset**: Takes effect only on the clock edge.
+
+## Simulation Synthesis of Different Types of D Flip-Flops
+
+### Icarus Verilog Simulation
+
+``` bash
+1. **Compile:**
+   iverilog <filename>.v tb_<filename>.v
+   
+2. **Run:**
+   ./a.out
+   
+3. **View Waveform:**
+   gtkwave <filename>.vcd
+```
+<b>filenmae</b>:  dff_asyncres, dff_asyncres_set, dff_syncres
+
+1️⃣ DFF with Asynchronous Reset (dff_asyncres)
+
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_asyncres_wave.png?raw=true" width="600"/>
+</p>
+
+2️⃣ DFF with Asynchronous Reset and Set (dff_asyncres_set)
+
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_async_set_wave.png?raw=true" width="600"/>
+</p>
+
+3️⃣ DFF with Synchronous Reset (dff_syncres)
+
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_syncres_wave.png?raw=true" width="600"/>
+</p>
+
 ---
+
 
 
 
