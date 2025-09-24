@@ -524,6 +524,7 @@ endmodule
 </div>
 
 ### Synthesis and optimization
+#### Multiply by 2
 
 ```bash
 # Invoke Yosys
@@ -561,8 +562,40 @@ write_verilog -noattr mul_2_netlist.v
 
 The mul2 module multiplies a 3-bit input by 2. During synthesis in Sky130 PDK, the tool optimizes this multiplication as a simple left shift (y = a << 1) instead of using a full multiplier. This reduces area 🏗️, power 🔋, and improves timing ⏱️, since only wiring and minimal buffers are needed to implement the operation efficiently.
 
+#### Multiply by 8
+
+```bash
+# Invoke Yosys
+yosys
+
+# Read the Library file
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Read the verilog file
+read_verilog mult_8.v
+
+# Synthesis Design
+synth -top mult8
+
+# Technology mapping
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Visualize the gate-level netlist 
+show
+```
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/mul8_synth.png?raw=true" width="600"/>
+</p>
 
 
+``` bash
+
+# Write Netlist File
+write_verilog -noattr mul_8_netlist.v
+```
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/mul_8_netlist.png?raw=true" width="600"/>
+</p>
 
 ---
 
