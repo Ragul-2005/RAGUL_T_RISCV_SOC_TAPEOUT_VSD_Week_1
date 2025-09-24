@@ -1,4 +1,3 @@
-<img width="1847" height="318" alt="image" src="https://github.com/user-attachments/assets/6427f65f-a376-4ab6-9d11-0ac0a2a60684" /><div align="center">
   <h1>🚀 Day 2 - Timing Libraries, Hierarchical vs Flat Synthesis, and Efficient Flop Coding Styles ⚡</h1>
   </div>
 
