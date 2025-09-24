@@ -259,6 +259,8 @@ show
 ---
 ## 4. Various Flop Coding Styles and Optimization 🔄
 
+## Various Flop Coding Styles
+
 ### What is Flip Flop
 
 - A 🔄 <strong>flip-flop</strong> is a fundamental ⌛ <b>sequential logic circuit</b> used in digital systems to store <strong>one bit of information</strong>.
@@ -440,6 +442,79 @@ show
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_syncres_synth.png?raw=true" width="600"/>
 </p>
+
+## Optimization
+
+
+### 🔧 Synthesis Optimization 
+
+Synthesis optimization 🔧 means mapping RTL to standard cells in a way that improves area 🏗️, timing ⏱️, and power 🔋. The tool resizes gates, inserts buffers 🪛, and picks the best cell variants (hd, hs, lp) ⚡ to meet design constraints efficiently.
+
+1️⃣ Area Optimization 🏗️
+   - Use smaller cells ➡️ `NAND2_1` instead of `NAND2_4`
+   - Goal: reduce area 🟦
+   - Tradeoff: smaller = slower 🐢
+
+2️⃣ Timing Optimization ⏱️
+   - Upsize cells on critical path ➡️ `INV_8` instead of `INV_2`
+   - Insert buffers 🪛 to fix long wires
+   - Logic restructuring 🔄
+   - Goal: meet setup/hold requirements ⚡
+
+3️⃣ Power Optimization 🔋
+   - Use low-power cells where possible 🌱
+   - Insert clock gating 🚪 to cut dynamic power
+   - Goal: reduce leakage & switching power
+
+4️⃣ Multi-Vt & Multi-Drive 🔀
+   - SKY130 has `hd` (high-density), `hs` (high-speed), `lp` (low-power)
+   - Pick right mix 🧩 for performance vs. leakage
+   - Goal: balance speed 🏎️ vs. power 🔋
+
+### Functional Summary ✨
+
+We are taking mul2 and mult8 as examples of simple Verilog multiplier modules. The mul2 module multiplies a 3-bit input a by 2, producing a 4-bit output, while the mult8 module multiplies the same 3-bit input by 9, producing a 6-bit output. These examples show how synthesis in the Sky130 PDK can optimize multiplications using shift and add operations, which helps reduce area 🏗️, lower power consumption 🔋, and improve timing ⏱️.
+
+#### Code for multiply by 2
+```bash
+```
+#### Code for multiply by 8
+```bash
+```
+
+#### Truth Table for mul2 module
+<div align="center">
+  
+a[2:0] | a(dec) | y[3:0] | y(dec)
+-----------------------------------
+000     |   0    | 0000    |   0
+001     |   1    | 0010    |   2
+010     |   2    | 0100    |   4
+011     |   3    | 0110    |   6
+100     |   4    | 1000    |   8
+101     |   5    | 1010    |  10
+110     |   6    | 1100    |  12
+111     |   7    | 1110    |  14
+
+</div>
+
+#### Truth Table for mul8 module
+<div align="center">
+
+a[2:0] | a(dec) | y[5:0] | y(dec)
+-----------------------------------
+000     |   0    | 000000  |   0
+001     |   1    | 001001  |   9
+010     |   2    | 010010  |  18
+011     |   3    | 011011  |  27
+100     |   4    | 100100  |  36
+101     |   5    | 101101  |  45
+110     |   6    | 110110  |  54
+111     |   7    | 111111  |  63
+
+</div>
+
+
 
 ---
 
