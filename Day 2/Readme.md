@@ -296,9 +296,9 @@ show
 4. ⏱️ <strong>DFF with Synchronous Reset (dffsyncres)</strong>  
    - Reset input is checked only at the active clock edge.  
    - <code>reset = 1</code> → Q becomes 0, but only on clock edge.  
-   - Used for controlled reset aligned with the clock.  
-## 🔹 Why Flip-Flops Are Used Between Combinational Circuits (Delay Perspective)
-
+   - Used for controlled reset aligned with the clock.
+     
+## 🔹 Why Flip-Flops Are Used Between Combinational Circuits 
 
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/Combinational%20circuit.png?raw=true" width="600"/>
@@ -329,7 +329,33 @@ show
    - Flip-flops act as timing checkpoints.  
    - Ensures valid outputs at every clock cycle.  
 
+## 🔹 Verilog Codes for Different Types of D Flip-Flops
+1️⃣ DFF with Asynchronous Reset (dffasyncre)
 
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_asyncres.png?raw=true" width="600"/>
+</p>
+<div align="center">
+<h3> Submodule Synthesis</h3>
+  </div>
+
+2️⃣ DFF with Asynchronous Reset and Set (dffasyncres_set)
+
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_async_set.png?raw=true" width="600"/>
+</p>
+<div align="center">
+<h3> Submodule Synthesis</h3>
+  </div>
+
+ 3️⃣ DFF with Synchronous Reset (dffsyncres)
+ 
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_syncres.png?raw=true" width="600"/>
+</p>
+<div align="center">
+<h3> Submodule Synthesis</h3>
+  </div>
 ---
 
 
