@@ -609,7 +609,7 @@ The mult8 module multiplies a 3-bit input by 9. During synthesis in Sky130 PDK, 
 
 ---
 <div align="center">
-### 🌅 End of Day 2 Summary
+<b>🌅 End of Day 2 Summary</b>
 </div>
 
 
