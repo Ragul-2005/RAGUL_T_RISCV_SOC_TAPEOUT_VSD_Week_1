@@ -271,6 +271,8 @@ show
 - 💾 Widely used in <strong>registers</strong>, 🔢 <strong>counters</strong>, 🔄 <strong>finite state machines (FSMs)</strong>, and 🖥️ <strong>processors</strong>.  
 - ⭐ Common types: <b>SR, D, JK, and T Flip-Flops</b>, with the <strong>D Flip-Flop</strong> being the most popular for <b>data storage & transfer</b>.
 
+--
+
 ### Types of Flip Flop
 1. SR Flip Flop(Set-Reset)
 2. D Flip Flop(Delay/Data)
@@ -328,7 +330,9 @@ show
 5. 🛡️ <strong>Maintain Predictable Timing</strong>  
    - Combinational delay changes with <code>PVT (Process, Voltage, Temperature)</code>.  
    - Flip-flops act as timing checkpoints.  
-   - Ensures valid outputs at every clock cycle.  
+   - Ensures valid outputs at every clock cycle.
+  
+--
 
 ## 🔹 Verilog Codes for Different Types of D Flip-Flops
 1️⃣ DFF with Asynchronous Reset (dffasyncre)
