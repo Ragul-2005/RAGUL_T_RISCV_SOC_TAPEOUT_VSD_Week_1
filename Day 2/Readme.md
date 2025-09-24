@@ -271,7 +271,7 @@ show
 - 💾 Widely used in <strong>registers</strong>, 🔢 <strong>counters</strong>, 🔄 <strong>finite state machines (FSMs)</strong>, and 🖥️ <strong>processors</strong>.  
 - ⭐ Common types: <b>SR, D, JK, and T Flip-Flops</b>, with the <strong>D Flip-Flop</strong> being the most popular for <b>data storage & transfer</b>.
 
---
+---
 
 ### Types of Flip Flop
 1. SR Flip Flop(Set-Reset)
@@ -332,7 +332,7 @@ show
    - Flip-flops act as timing checkpoints.  
    - Ensures valid outputs at every clock cycle.
   
---
+---
 
 ## 🔹 Verilog Codes for Different Types of D Flip-Flops
 1️⃣ DFF with Asynchronous Reset (dffasyncre)
@@ -359,6 +359,8 @@ show
 </p>
 
 - **Synchronous reset**: Takes effect only on the clock edge.
+
+---
 
 ## Simulation Synthesis of Different Types of D Flip-Flops
 
@@ -446,6 +448,8 @@ show
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_syncres_synth.png?raw=true" width="600"/>
 </p>
+
+---
 
 ## Optimization
 
@@ -600,6 +604,8 @@ write_verilog -noattr mul_8_netlist.v
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/mul_8_netlist.png?raw=true" width="600"/>
 </p>
+
+The mult8 module multiplies a 3-bit input by 9. During synthesis in Sky130 PDK, the tool optimizes this as a shift-and-add operation (a*9 = (a << 3) + a) instead of a full multiplier. This reduces area 🏗️, power 🔋, and improves timing ⏱️, using just shifts and adders from the standard cell library.
 
 ---
 
