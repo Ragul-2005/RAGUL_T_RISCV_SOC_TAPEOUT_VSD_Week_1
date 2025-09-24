@@ -477,43 +477,19 @@ We are taking mul2 and mult8 as examples of simple Verilog multiplier modules. T
 
 #### Code for multiply by 2
 ```bash
+module mul2 (input [2:0] a, output [3:0] y);
+	assign y = a * 2;
+endmodule
 ```
 #### Code for multiply by 8
 ```bash
+module mult8 (input [2:0] a , output [5:0] y);
+	assign y = a * 9;
+endmodule
+
 ```
 
-#### Truth Table for mul2 module
-<div align="center">
-
-| a[2:0] | a(dec) | y[3:0] | y(dec) |
-|--------|--------|--------|--------|
-| 000    | 0      | 0000   | 0      |
-| 001    | 1      | 0010   | 2      |
-| 010    | 2      | 0100   | 4      |
-| 011    | 3      | 0110   | 6      |
-| 100    | 4      | 1000   | 8      |
-| 101    | 5      | 1010   | 10     |
-| 110    | 6      | 1100   | 12     |
-| 111    | 7      | 1110   | 14     |
-
-</div>
-
-#### Truth Table for mul8 module
-
-| a[2:0] | a(dec) | y[5:0] | y(dec) |
-|--------|--------|--------|--------|
-| 000    | 0      | 000000 | 0      |
-| 001    | 1      | 001001 | 9      |
-| 010    | 2      | 010010 | 18     |
-| 011    | 3      | 011011 | 27     |
-| 100    | 4      | 100100 | 36     |
-| 101    | 5      | 101101 | 45     |
-| 110    | 6      | 110110 | 54     |
-| 111    | 7      | 111111 | 63     |
-
-
-
-### 🔢 Truth Table for `mul2`
+### 🔢 Truth Table for mul2
 <div align="center">
 
 | **a[2:0]** | **a (dec)** | **y[3:0]** | **y (dec)** |
@@ -531,7 +507,7 @@ We are taking mul2 and mult8 as examples of simple Verilog multiplier modules. T
 
 ---
 
-### 🔢 Truth Table for `mul8`
+### 🔢 Truth Table for mul8
 <div align="center">
 
 | **a[2:0]** | **a (dec)** | **y[5:0]** | **y (dec)** |
@@ -546,6 +522,44 @@ We are taking mul2 and mult8 as examples of simple Verilog multiplier modules. T
 | 111        | 7           | 111111      | 63          |
 
 </div>
+
+### Synthesis and optimization
+
+```bash
+# Invoke Yosys
+yosys
+
+# Read the Library file
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Read the verilog file
+read_verilog mult_2.v
+
+# Synthesis Design
+synth -top mul2
+
+# Technology mapping
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Visualize the gate-level netlist 
+show
+```
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/mul2_synth.png?raw=true" width="600"/>
+</p>
+
+
+``` bash
+
+# Write Netlist File
+write_verilog -noattr mul_2_netlist.v
+```
+
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/mul2_netlist.png?raw=true" width="600"/>
+</p>
+
+The mul2 module multiplies a 3-bit input by 2. During synthesis in Sky130 PDK, the tool optimizes this multiplication as a simple left shift (y = a << 1) instead of using a full multiplier. This reduces area 🏗️, power 🔋, and improves timing ⏱️, since only wiring and minimal buffers are needed to implement the operation efficiently.
 
 
 
