@@ -260,7 +260,49 @@ show
 ---
 ## 4. Various Flop Coding Styles and Optimization 🔄
 
-A 🔄 <strong>flip-flop</strong> is a fundamental ⌛ <b>sequential logic circuit</b> used in digital systems to store <strong>one bit of information</strong>. Unlike ⚡ <b>combinational circuits</b>, its output depends not only on the <b>current input</b> but also on the <b>previous state</b>, making it a basic 🧠 <strong>memory element</strong>. Flip-flops are ⏱️ <b>clock-controlled</b>, meaning they change their output only at specific <strong>clock edges</strong> (rising or falling), which helps in <b>synchronizing data flow</b>. They are widely used in 💾 <strong>registers</strong>, 🔢 <strong>counters</strong>, 🔄 <strong>finite state machines (FSMs)</strong>, and 🖥️ <strong>processors</strong>. Common types include SR, D, JK, and T flip-flops, with the ⭐ <b>D flip-flop</b> being the most popular for <strong>data storage</strong> and <strong>transfer</strong> in synchronous circuits.
+### What is Flip Flop
+
+- A 🔄 <strong>flip-flop</strong> is a fundamental ⌛ <b>sequential logic circuit</b> used in digital systems to store <strong>one bit of information</strong>.
+- ⚡ Unlike <b>combinational circuits</b>, its output depends on the <strong>current input</strong> and the <strong>previous state</strong>.  
+- 🧠 Acts as a <strong>memory element</strong> in digital systems.  
+- ⏱️ <b>Clock-controlled</b> → changes output only at specific <strong>clock edges</strong> (rising/falling).  
+- 🔗 Helps in <b>synchronizing data flow</b> across circuits.  
+- 💾 Widely used in <strong>registers</strong>, 🔢 <strong>counters</strong>, 🔄 <strong>finite state machines (FSMs)</strong>, and 🖥️ <strong>processors</strong>.  
+- ⭐ Common types: <b>SR, D, JK, and T Flip-Flops</b>, with the <strong>D Flip-Flop</strong> being the most popular for <b>data storage & transfer</b>.
+
+### Types of Flip Flop
+1. SR Flip Flop(Set-Reset)
+2. D Flip Flop(Delay/Data)
+3. JK Flip Flop
+4. T Flip Flop(Toggle)
+
+### Coding Style
+## 🔹 Types of D Flip-Flops (DFF) used in Coding Style
+
+1. 📌 <strong>Basic DFF</strong>  
+   - Stores the input <code>D</code> on the clock edge.  
+   - No reset or set functionality.  
+
+2. 🔄 <strong>DFF with Asynchronous Reset (dffasyncre)</strong>  
+   - Has an extra <code>reset</code> input.  
+   - When <code>reset = 1</code>, output <code>Q → 0</code> immediately (ignores clock).  
+   - Used when reset must work independent of clock.  
+
+3. ⚡ <strong>DFF with Asynchronous Reset and Set (dffasyncres_set)</strong>  
+   - Has both <code>reset</code> and <code>set</code> inputs.  
+   - <code>reset = 1 → Q = 0</code>, <code>set = 1 → Q = 1</code>, works without waiting for clock.  
+   - Priority usually: Reset > Set > D (depends on coding style).  
+
+4. ⏱️ <strong>DFF with Synchronous Reset (dffsyncres)</strong>  
+   - Reset input is checked only at the active clock edge.  
+   - <code>reset = 1</code> → Q becomes 0, but only on clock edge.  
+   - Used for controlled reset aligned with the clock.  
+
+
+---
+
+
+
 
 
 
