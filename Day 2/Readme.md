@@ -258,6 +258,10 @@ show
   </div>
 
 ---
+## 4. Various Flop Coding Styles and Optimization 🔄
+
+A 🔄 <strong>flip-flop</strong> is a fundamental ⌛ <b>sequential logic circuit</b> used in digital systems to store <strong>one bit of information</strong>. Unlike ⚡ <b>combinational circuits</b>, its output depends not only on the <b>current input</b> but also on the <b>previous state</b>, making it a basic 🧠 <strong>memory element</strong>. Flip-flops are ⏱️ <b>clock-controlled</b>, meaning they change their output only at specific <strong>clock edges</strong> (rising or falling), which helps in <b>synchronizing data flow</b>. They are widely used in 💾 <strong>registers</strong>, 🔢 <strong>counters</strong>, 🔄 <strong>finite state machines (FSMs)</strong>, and 🖥️ <strong>processors</strong>. Common types include SR, D, JK, and T flip-flops, with the ⭐ <b>D flip-flop</b> being the most popular for <strong>data storage</strong> and <strong>transfer</strong> in synchronous circuits.
+
 
 
 
