@@ -423,6 +423,24 @@ show
 - <b>filename</b>:  dff_asyncres, dff_asyncres_set, dff_syncres
 - <b>modulename</b>:  dff_asyncres, dff_asyncres_set, dff_syncres
 
+1️⃣ DFF with Asynchronous Reset (dff_asyncres)
+
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_asyncres_synth.png?raw=true  " width="600"/>
+</p>
+
+2️⃣ DFF with Asynchronous Reset and Set (dff_asyncres_set)
+
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_async_set_synth.png?raw=true" width="600"/>
+</p>
+
+3️⃣ DFF with Synchronous Reset (dff_syncres)
+
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_syncres_synth.png?raw=true" width="600"/>
+</p>
+
 ---
 
 
