@@ -359,13 +359,13 @@ show
 ### Icarus Verilog Simulation
 
 ``` bash
-1. **Compile:**
+1. # Compile:
    iverilog <filename>.v tb_<filename>.v
    
-2. **Run:**
+2. # Run:
    ./a.out
    
-3. **View Waveform:**
+3. # View Waveform:
    gtkwave <filename>.vcd
 ```
 <b>filenmae</b>:  dff_asyncres, dff_asyncres_set, dff_syncres
@@ -387,6 +387,41 @@ show
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_syncres_wave.png?raw=true" width="600"/>
 </p>
+
+### Synthesis with Yosys
+
+```bash
+
+1. Start Yosys:
+
+   yosys
+
+2. Read Liberty library:
+
+   read_liberty -lib /address/to/your/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+3. Read Verilog code:
+
+   read_verilog /path/to/<filename>.v
+
+4. Synthesize:
+
+   synth -top <modulename>
+
+5. Map flip-flops:
+
+   dfflibmap -liberty /address/to/your/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+6. Technology mapping:
+
+   abc -liberty /address/to/your/sky130/file/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+7. Visualize the gate-level netlist:
+   
+   show
+```
+<b>filenmae</b>:  dff_asyncres, dff_asyncres_set, dff_syncres
+<b>modulename</b>:  dff_asyncres, dff_asyncres_set, dff_syncres
 
 ---
 
