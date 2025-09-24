@@ -482,8 +482,30 @@ We are taking mul2 and mult8 as examples of simple Verilog multiplier modules. T
 ```bash
 ```
 
-#### Truth Table for mul2 module
+#### Truth Table for mul8 module
+
 <div align="center">
+
+
+|a[2:0] | a(dec) | y[5:0] | y(dec) |
+-----------------------------------
+|000     |   0    | 000000  |   0|
+|001     |   1    | 001001  |   9|
+|010     |   2    | 010010  |  18|
+|011     |   3    | 011011  |  27|
+|100     |   4    | 100100  |  36|
+|101     |   5    | 101101  |  45|
+|110     |   6    | 110110  |  54|
+|111     |   7    | 111111  |  63|
+
+
+</div>
+
+
+#### Truth Table for mul2 module
+
+<div align="center">
+
   
 a[2:0] | a(dec) | y[3:0] | y(dec)
 -----------------------------------
@@ -499,7 +521,9 @@ a[2:0] | a(dec) | y[3:0] | y(dec)
 </div>
 
 #### Truth Table for mul8 module
+
 <div align="center">
+
 
 |a[2:0] | a(dec) | y[5:0] | y(dec) |
 -----------------------------------
@@ -511,6 +535,7 @@ a[2:0] | a(dec) | y[3:0] | y(dec)
 |101     |   5    | 101101  |  45|
 |110     |   6    | 110110  |  54|
 |111     |   7    | 111111  |  63|
+
 
 </div>
 
