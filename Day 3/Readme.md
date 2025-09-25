@@ -195,13 +195,131 @@ module opt_check4 (input a , input b , input c , output y);
 
 ---
 
+#### SEQUENTIAL LOGIC OPTIMIZATION  
+```bash
+//To view all optimization files
+$ ls *df*const*
+
+//To open multiple files 
+$ dff_const1.v -o dff_const2.v
+
+//Performing Simulation
+
+//Load the design in iVerilog by giving the verilog and testbench file names
+$ iverilog dff_const1.v tb_dff_const1.v
+
+//To dump the VCD file
+$ ./a.out
+
+//To load the VCD file in GTKwaveform
+$ gtkwave tb_dff_const1.vcd
+
+//Performing Synthesis
+
+//Invoke Yosys
+$ yosys
+
+//Read library 
+$ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd_-tt_025C_1v80.lib
+
+//Read Design
+$ read_verilog dff_const1.v
+
+//Synthesize Design - this controls which module to synthesize
+$ synth -top dff_const1
+
+//There will be a separate flop library under a standard library
+//so we need to tell the design where to specifically pick up the DFF
+
+//But here we point back to the same library and tool looks only for DFF instead of all cells
+$ dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd_-tt_025C_1v80.lib
+
+//Generate Netlist
+$ abc -liberty ../my_lib/lib/sky130_fd_sc_hd_-tt_025C_1v80.lib
+
+//Realizing Graphical Version of Logic for single modules
+$ show 
+```
+#### 1)dff_const1
+**Verilog Code**
+```bash
+module dff_const1(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b0;
+	else
+		q <= 1'b1;
+end
+
+endmodule
+```
+
+**GTKWave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const1.png?raw=true" width="600"/>
+</p>
+
+**Realization Logic**
+
+
+#### 2)dff_const2
+**Verilog Code**
+```bash
+module dff_const2(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b1;
+	else
+		q <= 1'b1;
+end
+endmodule
+```
+
+**GTKWave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const2.png?raw=true" width="600"/>
+</p>
+
+**Realization Logic**
+
+
+#### 3)dff_const3
+**Verilog Code**
+```bash
+module dff_const3(input clk, input reset, output reg q);
+reg q1;
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b1;
+		q1 <= 1'b0;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+endmodule
+```
+
+**GTKWave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const3.png?raw=true" width="600"/>
+</p>
+
+**Realization Logic**
 
 
 
 
 
 
-## 🎯 Learning Objectives 📈
+
+## 🎯 Learning Outcomes 📈
 
 Through comprehensive labs on:
 - **Combinational logic optimizations** ⚙️🔧
