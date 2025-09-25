@@ -8,10 +8,10 @@ Welcome to **Day 3** of the RISC-V Reference SoC Tapeout Program! 🎉 Today you
 
 ## 📋 Table of Content 🧪
 
-### 🔧 1. Introduction to Optimizations 📖
-### ⚡  2. Combinational Logic Optimizations 🧮
-### 🔄 3. Sequential Logic Optimizations 🕐
-### 🎛️ 4. Sequential Optimizations for Unused Outputs 🗑️
+ 🔧 1. Introduction to Optimizations 📖
+ ⚡  2. Combinational Logic Optimizations 🧮
+ 🔄 3. Sequential Logic Optimizations 🕐
+ 🎛️ 4. Sequential Optimizations for Unused Outputs 🗑️
 
 
 
