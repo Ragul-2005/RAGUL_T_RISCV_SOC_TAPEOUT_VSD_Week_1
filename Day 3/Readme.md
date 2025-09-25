@@ -100,8 +100,7 @@ y = a xor c
 
 ---
 
-#### COMBINATIONAL LOGIC OPTIMIZATION  
-
+### ⚡  2. Combinational Logic Optimizations 🧮
 ```bash
 //to view all optimization files
 $ ls *opt_check*
@@ -195,7 +194,7 @@ module opt_check4 (input a , input b , input c , output y);
 
 ---
 
-#### SEQUENTIAL LOGIC OPTIMIZATION  
+### 🔄 3. Sequential Logic Optimizations 🕐
 ```bash
 //To view all optimization files
 $ ls *df*const*
@@ -339,6 +338,89 @@ endmodule
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const4.png?raw=true" width="800"/>
 </p>
 
+**Realization Logic**
+
+
+#### 5)dff_const5
+**Verilog Code**
+```bash
+module dff_const5(input clk, input reset, output reg q);
+reg q1;
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b0;
+		q1 <= 1'b0;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+endmodule
+```
+**GTKWave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const5.png?raw=true" width="800"/>
+</p>
+
+**Realization Logic**
+
+---
+
+### 🎛️ 4. Sequential Optimizations for Unused Outputs 🗑️
+```bash
+//Steps Followed for each of the unused output optimization problems:
+
+//opening the file
+$ gvim counter_opt.v
+
+//Invoke Yosys
+$ yosys
+
+//Read library 
+$ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+//Read Design
+$ read_verilog opt_check.v
+
+//Synthesize Design - this controls which module to synthesize
+$ synth -top opt_check
+
+//To perform constant propogation optimization
+$ opt_clean -purge
+
+//Generate Netlist
+$ abc -liberty ../my_lib/lib/sky130_fd_sc_hd_-tt_025C_1v80.lib
+
+//Realizing Graphical Version of Logic for single modules
+$ show 
+```
+#### counter_opt
+**Verilog code**
+```bash
+module counter_opt (input clk , input reset , output q);
+reg [2:0] count;
+assign q = count[0];
+
+always @(posedge clk ,posedge reset)
+begin
+	if(reset)
+		count <= 3'b000;
+	else
+		count <= count + 1;
+end
+
+endmodule
+```
+- <b>If there is a reset, the counter is intialised to 0, else it is incremented - performing like an upcounter. Since it is a 3 bit signal, the counter rolls back after 7. However, the final output q is sensing only the count [0], so the bit is toggling in every clock cycle (000, 001, 010 ...111). The other two outputs are unused and does not create any output dependency. Hence, these unused outpus need not be present in the design.</b>
+
+**Realization Logic**
+
+**optimized realization of output Q (count0) being fed to NOT gate so as to perform the toggle function. The other outputs which has no dependency on the primary out is optimized off._**
+
 
 
 
@@ -352,4 +434,5 @@ Through comprehensive labs on:
 - **Combinational logic optimizations** ⚙️🔧
 - **Sequential logic optimizations** 🔄⚡ 
 - **Unused output optimizations** 🎛️✂️
+  
 
