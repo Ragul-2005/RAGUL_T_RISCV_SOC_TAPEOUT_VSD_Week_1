@@ -128,20 +128,43 @@ $ abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 $ show
 ```
 
-#### (i)opt_check.v
+#### 1.opt_check.v
 **Logic from verilog file**
 ```bash
 module opt_check (input a , input b , output y);
 	assign y = a?b:0;
 endmodule
 ```
-- <b>value of y depends on a, y = ab._</b
+- <b>value of y depends on a, y = ab</b>
 
+**Realization of Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/opt_check.png?raw=true" width="600"/>
+</p>
 
+**optimized realization shows a 2-input AND gate being implemented.**
+
+#### 2.opt_check2
+**Logic from Verilog file**
+```bash
+module opt_check2 (input a , input b , output y);
+	assign y = a?1:b;
+endmodule
+```
+- <b> value of y depends on a, y = a+b</b>
+
+**Realization of Logic**
 
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_asyncres.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/opt_check2.png?raw=true" width="600"/>
 </p>
+
+**optimized realization shows the 2-input OR gate being implemented. Although OR gate can be realized using NOR, it can lead to having stacked PMOS configuration which is not a design recommendation. So the OR gate is realized using NAND and NOT gates (which has stacked NMOS configuration).**
+
+#### 3.opt_check3
+***Lo
+
+
 
 ## 🎯 Learning Objectives 📈
 
