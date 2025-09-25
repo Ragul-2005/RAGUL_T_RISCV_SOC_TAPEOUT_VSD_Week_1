@@ -34,7 +34,8 @@ Welcome to **Day 3** of the RISC-V Reference SoC Tapeout Program! 🎉 Today you
 * Boolean Logic Optimization.
 	* Karnaugh map
 	* Quine Mckluskey
-   #### CONSTANT PROPAGATION
+
+#### CONSTANT PROPAGATION
 
 In Constant propagation techniques, inputs that are no way related or affecting the changes in the output are ignored/optimized to simplify the combination logic thereby saving area and power usage by those input pins.
 ```
