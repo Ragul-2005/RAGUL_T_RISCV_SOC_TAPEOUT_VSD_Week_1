@@ -129,7 +129,7 @@ $ show
 ```
 
 #### 1.opt_check.v
-**Logic from verilog file**
+**Logic from Verilog file**
 ```bash
 module opt_check (input a , input b , output y);
 	assign y = a?b:0;
@@ -137,7 +137,7 @@ endmodule
 ```
 - <b>value of y depends on a, y = ab</b>
 
-**Realization of Logic**
+**Realization Logic**
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/opt_check.png?raw=true" width="600"/>
 </p>
@@ -153,7 +153,7 @@ endmodule
 ```
 - <b> value of y depends on a, y = a+b</b>
 
-**Realization of Logic**
+**Realization Logic**
 
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/opt_check2.png?raw=true" width="600"/>
@@ -162,7 +162,42 @@ endmodule
 **optimized realization shows the 2-input OR gate being implemented. Although OR gate can be realized using NOR, it can lead to having stacked PMOS configuration which is not a design recommendation. So the OR gate is realized using NAND and NOT gates (which has stacked NMOS configuration).**
 
 #### 3.opt_check3
-***Lo
+***Logic from Verilog file**
+```bash
+module opt_check3 (input a , input b, input c , output y);
+	assign y = a?(c?b:0):0;
+endmodule
+```
+- <b>value of y depends on a, y = abc</b>
+
+**Realization Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/opt_check3.png?raw=true" width="600"/>
+</p>
+
+**Optimized graphical realization thus shows 3-input AND gate being implemented**
+
+#### 4.opt_check4
+**Logic from Verilog file**
+```bash
+module opt_check4 (input a , input b , input c , output y);
+ assign y = a?(b?(a & c ):c):(!c);
+ endmodule
+```
+- <b>The value of y depends on a, y = a'c + ac</b>
+
+**Realization Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/opt_check4.png?raw=true" width="600"/>
+</p>
+
+**Optimized graphical realization thus shows A XNOR C gate being implemented.**
+
+---
+
+
+
+
 
 
 
