@@ -105,21 +105,43 @@ y = a xor c
 ```bash
 //to view all optimization files
 $ ls *opt_check*
+
 //Invoke Yosys
 $ yosys
+
 //Read library 
 $ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 //Read Design
 $ read_verilog opt_check.v
+
 //Synthesize Design - this controls which module to synthesize
 $ synth -top opt_check
+
 //To perform constant propogation optimization
 $ opt_clean -purge
+
 //Generate Netlist
 $ abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
 //Realizing Graphical Version of Logic for single modules
-$ show 
+$ show
 ```
+
+#### (i)opt_check.v
+**Logic from verilog file**
+```bash
+module opt_check (input a , input b , output y);
+	assign y = a?b:0;
+endmodule
+```
+- <b>value of y depends on a, y = ab._</b
+
+
+
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%202/Images/dff_asyncres.png?raw=true" width="600"/>
+</p>
 
 ## 🎯 Learning Objectives 📈
 
