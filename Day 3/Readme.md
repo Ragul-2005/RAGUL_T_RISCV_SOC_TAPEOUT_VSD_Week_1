@@ -257,7 +257,7 @@ endmodule
 
 **GTKWave Simulation**
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const1.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const1.png?raw=true" width="800"/>
 </p>
 
 **Realization Logic**
@@ -279,7 +279,7 @@ endmodule
 
 **GTKWave Simulation**
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const2.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const2.png?raw=true" width="800"/>
 </p>
 
 **Realization Logic**
@@ -308,10 +308,37 @@ endmodule
 
 **GTKWave Simulation**
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const3.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const3.png?raw=true" width="800"/>
 </p>
 
 **Realization Logic**
+
+
+#### 4)dff_const4
+**Verilog Code**
+```bash
+module dff_const4(input clk, input reset, output reg q);
+reg q1;
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b1;
+		q1 <= 1'b1;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+endmodule
+```
+**GTKWave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const4.png?raw=true" width="800"/>
+</p>
+
 
 
 
