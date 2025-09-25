@@ -1,6 +1,6 @@
 <div align="center"># 🚀 Day 3 - Combinational and Sequential Optimizations ⚡🔥</div>
 
-<div align="justify">Welcome to **Day 3** of the RISC-V Reference SoC Tapeout Program! 🎉 Today you'll master optimization techniques for both combinational and sequential logic circuits! 💪</div>
+<div align="justify">Welcome to <strong>Day 3</strong> of the RISC-V Reference SoC Tapeout Program! 🎉 Today you'll master optimization techniques for both combinational and sequential logic circuits! 💪</div>
 
 ## 📚 Overview 🌟
 
