@@ -260,6 +260,9 @@ endmodule
 </p>
 
 **Realization Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const1_syn.png?raw=true" width="800"/>
+</p>
 
 
 #### 2)dff_const2
@@ -282,6 +285,9 @@ endmodule
 </p>
 
 **Realization Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const2_syn.png?raw=true" width="800"/>
+</p>
 
 
 #### 3)dff_const3
@@ -311,6 +317,9 @@ endmodule
 </p>
 
 **Realization Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const3_syn.png?raw=true" width="800"/>
+</p>
 
 
 #### 4)dff_const4
@@ -339,6 +348,9 @@ endmodule
 </p>
 
 **Realization Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const4_syn.png?raw=true" width="800"/>
+</p>
 
 
 #### 5)dff_const5
@@ -367,6 +379,9 @@ endmodule
 </p>
 
 **Realization Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/dff_const5_syn.png?raw=true" width="800"/>
+</p>
 
 ---
 
@@ -418,14 +433,11 @@ endmodule
 - <b>If there is a reset, the counter is intialised to 0, else it is incremented - performing like an upcounter. Since it is a 3 bit signal, the counter rolls back after 7. However, the final output q is sensing only the count [0], so the bit is toggling in every clock cycle (000, 001, 010 ...111). The other two outputs are unused and does not create any output dependency. Hence, these unused outpus need not be present in the design.</b>
 
 **Realization Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%203/Images/counter_opt.png?raw=true" width="800"/>
+</p>
 
 **optimized realization of output Q (count0) being fed to NOT gate so as to perform the toggle function. The other outputs which has no dependency on the primary out is optimized off._**
-
-
-
-
-
-
 
 
 ## 🎯 Learning Outcomes 📈
@@ -434,5 +446,8 @@ Through comprehensive labs on:
 - **Combinational logic optimizations** ⚙️🔧
 - **Sequential logic optimizations** 🔄⚡ 
 - **Unused output optimizations** 🎛️✂️
-  
+ 
+<div align="center">
+<b>🌅 End of Day 3 Summary</b>
+</div>
 
