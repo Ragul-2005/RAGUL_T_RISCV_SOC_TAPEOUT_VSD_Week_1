@@ -192,7 +192,7 @@ begin
 end 
 endmodule
 ```
-**> Therefore there is a paramount importance to run the GLS on the netlist and match the specifications, to ensure there is no simulation synthesis mismatch.**
+**Therefore there is a paramount importance to run the GLS on the netlist and match the specifications, to ensure there is no simulation synthesis mismatch.**
 
 ## 👉 Learning Outcome  
 - Run GLS on your synthesized design 🛠  
