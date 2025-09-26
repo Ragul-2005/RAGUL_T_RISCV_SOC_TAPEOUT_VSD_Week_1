@@ -204,15 +204,18 @@ module ternary_operator_mux (input i0 , input i1 , input sel , output y);
 	assign y = sel?i1:i0;
 	endmodule
 ```
+---
 **GTK Wave Simulation**
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/terinary_mux_sim.png?raw=true" width="800"/>
 </p>
+---
 
 **Realization of Synthesis**
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/terinary_mux_synth.png?raw=true" width="800"/>
 </p>
+---
 
 **GLS OUTPUT**
 
@@ -232,6 +235,8 @@ gtkwave tb_ternary_operator_mux.vcd
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/ternarymux_gls.png?raw=true" width="800"/>
 </p>
 
+---
+
 #### MISSING SENSITIVITY LIST
 
 #### (ii) bad_mux.v showing mismatch due to missing sensitivity list
@@ -248,6 +253,7 @@ begin
 end
 endmodule
 ```
+---
 
 **GTK Wave Simulation**
 <p align="center">
@@ -261,12 +267,13 @@ endmodule
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/bad_mux_synth.png?raw=true" width="800"/>
 </p>
 - Confirms the functionality of 2x1 mux after synthesis where when the select is low, activity of input 0 is reflected on y. Similarly, when the select is hight, activity of input 1 is reflected on y. Hence there is a synthesis simulation mismatch due to missing sensitivity list._
-
+---
 
 **GLS Output**
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/bad_mux_gls.png?raw=true" width="800"/>
 </p>
+---
 
 
 
