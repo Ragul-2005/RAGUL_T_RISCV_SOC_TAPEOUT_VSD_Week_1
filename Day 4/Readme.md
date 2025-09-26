@@ -5,8 +5,8 @@
 ### Table of Content
 1️⃣ **GLS Concepts & Flow** 🏗  
 2️⃣ **Synthesis-Simulation Mismatch** 🔄  
-3️⃣ **Blocking vs Non-Blocking Statements in Verilog** ⏩⏸  
-4️⃣ **Caveats with Blocking Statements** ⚡  
+3️⃣ **Lab Excercise** ⏩⏸  
+4️⃣ 
 
 ## 1️⃣ GLS Concepts & Flow 🏗  
 
@@ -193,6 +193,88 @@ end
 endmodule
 ```
 **Therefore there is a paramount importance to run the GLS on the netlist and match the specifications, to ensure there is no simulation synthesis mismatch.**
+
+## 3️⃣ Lab Excercise ⏩⏸  
+
+#### (i) ternary_operator.v
+**Verilog Code**
+
+```bash
+module ternary_operator_mux (input i0 , input i1 , input sel , output y);
+	assign y = sel?i1:i0;
+	endmodule
+```
+**GTK Wave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/terinary_mux_sim.png?raw=true" width="800"/>
+</p>
+
+**Realization of Synthesis**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/terinary_mux_synth.png?raw=true" width="800"/>
+</p>
+
+**GLS OUTPUT**
+
+```bash
+# After synthesis
+
+# Run Iverilog
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_operator_mux.v
+
+# Dumpfile
+./a.out
+
+# Waveform viewer
+gtkwave tb_ternary_operator_mux.vcd
+```
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/ternarymux_gls.png?raw=true" width="800"/>
+</p>
+
+#### MISSING SENSITIVITY LIST
+
+#### (ii) bad_mux.v showing mismatch due to missing sensitivity list
+
+**Verilog File**
+```bash
+module bad_mux (input i0 , input i1 , input sel , output reg y);
+always @ (sel)
+begin
+	if(sel)
+		y <= i1;
+	else 
+		y <= i0;
+end
+endmodule
+```
+
+**GTK Wave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/bad_mux_sim.png?raw=true" width="800"/>
+</p>
+- during Simulation, the logic acts as a latch and during synthesis, it acts as a mux._
+
+
+**Realization of Synthesis**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/bad_mux_synth.png?raw=true" width="800"/>
+</p>
+- Confirms the functionality of 2x1 mux after synthesis where when the select is low, activity of input 0 is reflected on y. Similarly, when the select is hight, activity of input 1 is reflected on y. Hence there is a synthesis simulation mismatch due to missing sensitivity list._
+
+
+**GLS Output**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/bad_mux_gls.png?raw=true" width="800"/>
+</p>
+
+
+
+
+
+
+
+
 
 ## 👉 Learning Outcome  
 - Run GLS on your synthesized design 🛠  
