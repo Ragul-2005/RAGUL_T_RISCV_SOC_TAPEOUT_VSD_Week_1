@@ -116,7 +116,83 @@ endmodule
 ```
 - mismatch is corrected by having always @ (*) where the always block is evaluated when any signal changes. So, any changes in inputs will also be seen in the output.
 
+#### 2.Blocking vs Non-Blocking Assignments 🔀
 
+**Blocking** (=): Executes statements sequentially, one after another; used in combinational logic.
+**Non-blocking** (<=): Executes statements concurrently, all RHS values are evaluated first; used in sequential logic (flip-flops).
+
+
+#### CAVEAT 1:-
+```bash
+module code (input clk,input reset,
+input d,
+output reg q);
+always @ (posedge clk,posedge reset)
+begin
+if(reset)
+begin
+        q0 = 1'b0;
+        q = 1'b0;
+end
+else
+        q = q0;
+        q0 = d;    
+end
+endmodule
+```
+<img width="400" alt="cav1" src="https://user-images.githubusercontent.com/93824690/166245183-8f2608db-88cb-4966-beba-5038ff45390b.png">
+
+- The assignments inside the code represent the blocking statements. q0 and q are assigned to 1 bit 0s - so asynchronous reset connection happens. However, in the later parts, q0 is assigned to q and then d gets assigned to q0. If suppose, there is a change in the code.
+
+```bash
+module code (input clk,input reset,
+input d,
+output reg q);
+always @ (posedge clk,posedge reset)
+begin
+if(reset)
+begin
+        q0 = 1'b0;
+        q = 1'b0;
+end
+else
+        q0 = d;
+        q = q0;    
+end
+endmodule
+```
+- In this case, d is assigned to q0 and then q0 is assigned to q. So, by the time the second statment gets executed, q0 has the value of d. This will lead to implementation of only one flop. Previously, q has the value of q0 and q0 has the value of d - which lead to implementation of 2 storage elements._
+
+#### Always Use Non- Blocking Statements when writng the Sequential circuits code
+
+#### CAVEAT 2:- Causing Synthesis Simulation Mismatch
+```
+module code (input a,b,c
+output reg y);
+reg q0;
+always @ (*)
+begin
+        y = q0 & c;
+        q0 = a|b ;    
+end 
+endmodule
+```
+>_The code is aimed to create a function of y = (A+B).C. In the above code, when the code enters always block, due to the presence of blocking statements, they get evaulated in order. So y gets evaluated first (q0.C), where the q0 results corresponds to the previous iteration's result. The q0 value gets updated only in the second statement._
+
+When the order of the statements is changed: In this case, a OR b is evaluated first and the latest value is used for calculating y.
+```
+module code (input a,b,c
+output reg y);
+reg q0;
+always @ (*)
+begin
+        q0 = a|b ;
+        y = q0 & c;
+end 
+endmodule
+```
+
+**> Therefore there is a paramount importance to run the GLS on the netlist and match the specifications, to ensure there is no simulation synthesis mismatch.**
 
 ## 👉 Learning Outcome  
 - Run GLS on your synthesized design 🛠  
