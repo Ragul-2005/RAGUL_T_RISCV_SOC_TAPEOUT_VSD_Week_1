@@ -167,7 +167,7 @@ endmodule
 #### Always Use Non- Blocking Statements when writng the Sequential circuits code
 
 #### CAVEAT 2:- Causing Synthesis Simulation Mismatch
-```
+```bash
 module code (input a,b,c
 output reg y);
 reg q0;
@@ -178,10 +178,10 @@ begin
 end 
 endmodule
 ```
->_The code is aimed to create a function of y = (A+B).C. In the above code, when the code enters always block, due to the presence of blocking statements, they get evaulated in order. So y gets evaluated first (q0.C), where the q0 results corresponds to the previous iteration's result. The q0 value gets updated only in the second statement._
+- The code is aimed to create a function of y = (A+B).C. In the above code, when the code enters always block, due to the presence of blocking statements, they get evaulated in order. So y gets evaluated first (q0.C), where the q0 results corresponds to the previous iteration's result. The q0 value gets updated only in the second statement._
 
 When the order of the statements is changed: In this case, a OR b is evaluated first and the latest value is used for calculating y.
-```
+```bash
 module code (input a,b,c
 output reg y);
 reg q0;
@@ -192,7 +192,6 @@ begin
 end 
 endmodule
 ```
-
 **> Therefore there is a paramount importance to run the GLS on the netlist and match the specifications, to ensure there is no simulation synthesis mismatch.**
 
 ## 👉 Learning Outcome  
