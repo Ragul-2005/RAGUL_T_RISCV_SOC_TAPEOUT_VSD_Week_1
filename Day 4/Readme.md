@@ -114,7 +114,7 @@ begin
 end
 endmodule
 ```
-- mismatch is corrected by having always @ (*) where the always block is evaluated when any signal changes. So, any changes in inputs will also be seen in the output._
+- mismatch is corrected by having always @ (*) where the always block is evaluated when any signal changes. So, any changes in inputs will also be seen in the output.
 
 
 
