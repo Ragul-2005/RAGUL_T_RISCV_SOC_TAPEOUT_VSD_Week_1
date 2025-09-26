@@ -141,7 +141,7 @@ end
 endmodule
 ```
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/dff_blocking.png?raw=true" width="800"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/dff_blocking.png?raw=true" width="500"/>
 </p>
 - The assignments inside the code represent the blocking statements. q0 and q are assigned to 1 bit 0s - so asynchronous reset connection happens. However, in the later parts, q0 is assigned to q and then d gets assigned to q0. If suppose, there is a change in the code.
 
