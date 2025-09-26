@@ -1,4 +1,4 @@
-<div align="center"><h1> 🚀 Day 4: GLS, Synthesis-Simulation Mismatch & Blocking/Non-blocking Statements </h1></div>
+<img width="1849" height="427" alt="image" src="https://github.com/user-attachments/assets/60e8ff54-da5b-4ebc-9572-5552dfeefe94" /><div align="center"><h1> 🚀 Day 4: GLS, Synthesis-Simulation Mismatch & Blocking/Non-blocking Statements </h1></div>
 
 <div align="justify"><b>Welcome to Day 4 of the RISC-V Reference SoC Tapeout Program! 🎉 Today you'll explore Gate Level Simulation (GLS), uncover synthesis-simulation mismatches, and master blocking vs non-blocking statements in Verilog! ⚡💻</b></div>
  
@@ -6,7 +6,7 @@
 1️⃣ **GLS Concepts & Flow** 🏗  
 2️⃣ **Synthesis-Simulation Mismatch** 🔄  
 3️⃣ **Lab Excercise** ⏩⏸  
-4️⃣ 
+
 
 ## 1️⃣ GLS Concepts & Flow 🏗  
 
@@ -253,6 +253,7 @@ begin
 end
 endmodule
 ```
+
 ---
 
 **GTK Wave Simulation**
@@ -261,29 +262,66 @@ endmodule
 </p>
 - during Simulation, the logic acts as a latch and during synthesis, it acts as a mux._
 
+---
 
 **Realization of Synthesis**
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/bad_mux_synth.png?raw=true" width="800"/>
 </p>
-- Confirms the functionality of 2x1 mux after synthesis where when the select is low, activity of input 0 is reflected on y. Similarly, when the select is hight, activity of input 1 is reflected on y. Hence there is a synthesis simulation mismatch due to missing sensitivity list._
+- Confirms the functionality of 2x1 mux after synthesis where when the select is low, activity of input 0 is reflected on y. Similarly, when the select is hight, activity of input 1 is reflected on y. Hence there is a synthesis simulation mismatch due to missing sensitivity list.
+
 ---
 
 **GLS Output**
 <p align="center">
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/bad_mux_gls.png?raw=true" width="800"/>
 </p>
+
 ---
 
+#### (iii) blocking_caveat.v showing mismatch due to blocking assignments
 
+**Verilog File**
+```bash
+module blocking_caveat (input a , input b , input  c, output reg d); 
+reg x;
+always @ (*)
+begin
+	d = x & c;
+	x = a | b;
+end
+endmodule
+```
 
+---
+**GTK Wave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/blocking_caveat_sim.png?raw=true" width="800"/>
+</p>
 
+---
 
+**Realization of Synthesis**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/blocking_caveat_synth.png?raw=true" width="800"/>
+</p>
+- Confirms the functionality of 2x1 mux after synthesis where when the select is low, activity of input 0 is reflected on y. Similarly, when the select is hight, activity of input 1 is reflected on y. Hence there is a synthesis simulation mismatch due to missing sensitivity list.
 
+-value of output d is 0 after simulation and 1 after synthesis for the same set of input values. Hence there is a synthesis simulation mismatch due to blocking assignments.
 
+---
 
+**GLS Output**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%204/Images/blocking_caveat_gls.png?raw=true" width="800"/>
+</p>
+
+---
 
 ## 👉 Learning Outcome  
 - Run GLS on your synthesized design 🛠  
 - Detect and fix synthesis-simulation mismatches 🕵️  
-- Write robust RTL using correct assignment styles 🏆  
+- Write robust RTL using correct assignment styles 🏆
+
+<div align="center">🌟 End of Day 4 🌟</div>
+
