@@ -67,12 +67,56 @@ This verifies that the **post-synthesis design** behaves the same as the RTL. �
 
 A **Synthesis-Simulation Mismatch** happens when the behavior of a design during **RTL simulation** 📝 does not match the behavior of the design after **synthesis** 🏗.  
 
-
-## 🧩 Types of Synthesis-Simulation Mismatches  
+---
+### 🧩 Types of Synthesis-Simulation Mismatches  
 
 - 1️⃣ Missing Sensitivity List ⚡  
 - 2️⃣ Blocking vs Non-Blocking Assignments 🔀  
 - 3️⃣ Non-Standard Verilog Coding 🚫  
+
+#### ⚡ 1.Missing Sensitivity List  
+
+- In Verilog, **sensitivity lists** tell the simulator when to re-evaluate an `always` block.  
+- If a signal is **missing** from the sensitivity list, the RTL simulation may not update outputs correctly,  
+- but the synthesis tool will still build the correct hardware → leading to a **mismatch**. ⚠️
+
+**Example**
+```bash
+module mux(
+input i0,input i1
+input sel,
+output reg y
+);
+always @ (sel)
+begin
+   if (sel)
+            y = i1;
+   else 
+            y = i0;          
+end
+endmodule
+```
+The output of Simulator changes only when the input changes. The output is not evaluated when there is no activity. In the above 2x1 mux code, when select is changing (when select is 1), the output is 1 when input is 1 else the output is 0. The always block evaluates only when there is a transition change in select pin, and is not sensitive (output does not reflect) to changes in the inputs 0 and 1.
+
+**Corrected code for missing sensitivity list:**
+```bash
+module mux(
+input i0,input i1
+input sel,
+output reg y
+);
+always @ (*)
+begin
+   if (sel)
+            y = i1;
+   else 
+            y = i0;        
+end
+endmodule
+```
+- mismatch is corrected by having always @ (*) where the always block is evaluated when any signal changes. So, any changes in inputs will also be seen in the output._
+
+
 
 ## 👉 Learning Outcome  
 - Run GLS on your synthesized design 🛠  
