@@ -1,6 +1,3 @@
-<img width="780" height="517" alt="image" src="https://github.com/user-attachments/assets/26d32c63-74f7-46e2-af7c-9eb8aa1f2f6f" /><div align="center"><h1> 🚀 Day 4: GLS, Synthesis-Simulation Mismatch & Blocking/Non-blocking Statements </h1></div> 
-
-
 <div align="justify"><b>Welcome to Day 4 of the RISC-V Reference SoC Tapeout Program! 🎉 Today you'll explore Gate Level Simulation (GLS), uncover synthesis-simulation mismatches, and master blocking vs non-blocking statements in Verilog! ⚡💻</b></div>
  
 ### Table of Content
