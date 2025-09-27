@@ -8,7 +8,7 @@
 
 ## 📚 Table of Contents - Day 2
 
-1. [⏰ Introduction to Timing Libraries (.libs)](#1introduction-to-timing-libraries-libs)
+1. [ Introduction to Timing Libraries (.libs)](#1introduction-to-timing-libraries-libs)
 2. [🏗️ Hierarchical vs Flat Synthesis](#2-hierarchical-vs-flat-synthesis-🏗️)
 3. [Submodule Synthesis](#3-submodule-synthesis)
 4. [🔄 Various Flop Coding Styles and Optimization](#4-various-flop-coding-styles-and-optimization-🔄)
