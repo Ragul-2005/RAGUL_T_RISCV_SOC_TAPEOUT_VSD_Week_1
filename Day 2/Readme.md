@@ -610,7 +610,7 @@ write_verilog -noattr mul_8_netlist.v
 The mult8 module multiplies a 3-bit input by 9. During synthesis in Sky130 PDK, the tool optimizes this as a shift-and-add operation (a*9 = (a << 3) + a) instead of a full multiplier. This reduces area 🏗️, power 🔋, and improves timing ⏱️, using just shifts and adders from the standard cell library.
 
 
-## 🌅 Summary 
+## 🌅 5. Summary 
 
 - **⏰ Timing Libraries (.libs):**  
   - Explored **SKY130 PDK libraries** and their structure (`sky130_fd_sc_hd__tt_025C_1v80`)  
