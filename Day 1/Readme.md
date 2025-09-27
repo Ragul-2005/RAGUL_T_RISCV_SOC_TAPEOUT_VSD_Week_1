@@ -54,7 +54,7 @@ A **Testbench** is used to apply inputs to the design, monitor outputs, and veri
 - 📊If there's no change in input → no change in output 
 - 🔄The simulator is always looking for change in the value of input to trigger evaluation
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Stimulator_Workflow.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/Stimulator_Workflow.png?raw=true" width="600"/>
 </p>
 
 <div align="center">
@@ -101,7 +101,7 @@ iverilog good_mux.v tb_good_mux.v
 ./a.out
 ```
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/RTLCode_Run.png?raw=true" width="600"/>
+  <img src="[https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/RTLCode_Run.png?raw=true](https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/RTLCode_Run.png?raw=true)" width="600"/>
 </p>
 
 <div align="center">
