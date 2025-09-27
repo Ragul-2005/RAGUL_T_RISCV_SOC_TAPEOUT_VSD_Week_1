@@ -14,13 +14,13 @@
   <img src="https://img.shields.io/badge/Simulation-ModelSim-green?style=for-the-badge" />
 </div>
 
----
+---https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/tree/a280d65e4187941e6fdf84de19a6e096181f78b3/Day%201
 
 ## 📑 Table of Contents
 
 | Day | Topic | Subtopics | Description |
 |-----|-------|-----------|-------------|
-| [Day 1](./Day-1/README.md) | Digital Logic Essentials | Logic Gates, Binary Numbers, Truth Tables, Timing Diagrams | Explored basics of logic circuits, representation of data, and understanding timing in combinational circuits. |
+| [Day 1](https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/tree/a280d65e4187941e6fdf84de19a6e096181f78b3/Day%201) | Digital Logic Essentials | Logic Gates, Binary Numbers, Truth Tables, Timing Diagrams | Explored basics of logic circuits, representation of data, and understanding timing in combinational circuits. |
 | [Day 2](Day-2/README.md) | Combinational Circuit Design | Multiplexers, Decoders, Adders, Lab: 4-bit ALU | Designed combinational building blocks and verified functionality using simulations. |
 | [Day 3](Day-3/README.md) | Sequential Circuits Introduction | Flip-Flops, Registers, Counters, Clocking Concepts | Learned how sequential circuits store data and synchronize using clock signals. |
 | [Day 4](Day-4/README.md) | RTL Coding Practices | Coding Styles, FSM Design, Non-Blocking vs Blocking Assignments | Learned proper RTL coding styles, designing Finite State Machines, and avoiding simulation-synthesis mismatches. |
