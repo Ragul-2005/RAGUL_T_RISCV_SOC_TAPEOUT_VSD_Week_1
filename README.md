@@ -81,10 +81,9 @@ I would like to sincerely acknowledge and thank:
 
 <div align="center">
 
-**👨‍💻 Participant:** Sankararayanan V  
+**👨‍💻 Participant:** Ragul T  
 📧 tha.ragul2005@gmail.com
 
-
 </div>
----
+
 
