@@ -26,7 +26,7 @@
 
 ## Table of Content
 1. [🔧 Simulator, Design and Testbench](#1-simulator-design-and-testbench)
-2. [📟 Introduction to Iverilog](#2-introduction-to-iverilog)  
+2. [📟 Introduction to Iverilog](#2-introduction-to-Iverilog)  
 3. [💻 Lab: Simulating a 2-to-1 Multiplexer](#3-lab-simulating-a-2-to-1-multiplexer)  
 4. [📝 Verilog Code Analysis](#4-verilog-code-analysis)  
 5. [⚡ Introduction to Yosys and Gate Libraries](#5-introduction-to-yosys-and-gate-libraries)  
