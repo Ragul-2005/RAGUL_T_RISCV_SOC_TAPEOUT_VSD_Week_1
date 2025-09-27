@@ -36,7 +36,7 @@
 
 ---
 
-## 🔧1. What is Simulator, Design and Testbench
+## 🔧1. Simulator, Design and Testbench
 ### 🖥️ Simulator
 A **Simulator** is software that runs the <b>design</b> along with the <b>testbench</b>, allowing designers to check and debug the circuit’s functionality before building the actual hardware.🚀
 
