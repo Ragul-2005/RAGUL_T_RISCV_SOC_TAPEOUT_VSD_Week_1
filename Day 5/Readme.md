@@ -395,18 +395,143 @@ endmodule
 | 📝 Example placement      | `always @(*) begin ... for(...) ... end`| `generate ... for(...) ... endgenerate` |
 
 ---
+## 5. 🔹 Labs on "For Loop" and "For Generate"
+
+### For Loop Labs
+
+#### Case 1: 2-to-1 MUX with For Loop
+**Verilog Code**
+```bash
+module mux_generate (input i0 , input i1, input i2 , input i3 , input [1:0] sel  , output reg y);
+wire [3:0] i_int;
+assign i_int = {i3,i2,i1,i0};
+integer k;
+always @ (*)
+begin
+for(k = 0; k < 4; k=k+1) begin
+	if(k == sel)
+		y = i_int[k];
+end
+end
+endmodule
+```
+
+**GTKWave Simulation**
+
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/mux_gernerator_sim.png?raw=true" width="800"/>
+</p>
 
 
+#### Case 2: demux using case statement
+
+**Verilog Code**
+```bash
+module demux_case (output o0 , output o1, output o2 , output o3, output o4, output o5, output o6 , output o7 , input [2:0] sel  , input i);
+reg [7:0]y_int;
+assign {o7,o6,o5,o4,o3,o2,o1,o0} = y_int;
+integer k;
+always @ (*)
+begin
+y_int = 8'b0;
+	case(sel)
+		3'b000 : y_int[0] = i;
+		3'b001 : y_int[1] = i;
+		3'b010 : y_int[2] = i;
+		3'b011 : y_int[3] = i;
+		3'b100 : y_int[4] = i;
+		3'b101 : y_int[5] = i;
+		3'b110 : y_int[6] = i;
+		3'b111 : y_int[7] = i;
+	endcase
+
+end
+endmodule
+```
+**GTKWave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/demux_case_sim.png?raw=true" width="800"/>
+</p>
+
+**Realization of Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/Demux_case_synth.png?raw=true" width="800"/>
+</p>
 
 
+#### Case 3: demux using generate if statement
 
 
+**Verilog Code**
+```bash
+module demux_generate (output o0 , output o1, output o2 , output o3, output o4, output o5, output o6 , output o7 , input [2:0] sel  , input i);
+reg [7:0]y_int;
+assign {o7,o6,o5,o4,o3,o2,o1,o0} = y_int;
+integer k;
+always @ (*)
+begin
+y_int = 8'b0;
+for(k = 0; k < 8; k++) begin
+	if(k == sel)
+		y_int[k] = i;
+end
+end
+endmodule
+```
 
+**GTKWave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/demux_generator_sim.png?raw=true" width="800"/>
+</p>
 
+**Realization of Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/demux_generator_synth.png?raw=true" width="800"/>
+</p>
 
+#### Case 4: Ripple Carry Adder
 
+**Verilog Code**
+module rca (
+    input [7:0] num1,
+    input [7:0] num2,
+    output [8:0] sum
+);
+wire [7:0] int_sum;
+wire [7:0] int_co;
 
-   
+genvar i;
+generate
+    for (i = 1; i < 8; i = i + 1) begin
+        fa u_fa_1 (.a(num1[i]), .b(num2[i]), .c(int_co[i-1]), .co(int_co[i]), .sum(int_sum[i]));
+    end
+endgenerate
+
+fa u_fa_0 (.a(num1[0]), .b(num2[0]), .c(1'b0), .co(int_co[0]), .sum(int_sum[0]));
+
+assign sum[7:0] = int_sum;
+assign sum[8] = int_co[7];
+endmodule
+
+module fa (input a, input b, input c, output co, output sum);
+    assign {co, sum} = a + b + c; // Math magic!
+endmodule
+```
+***Simulating RIpple Carry Adder***
+```bash
+iverilog fa.v rca.v tb_rca.v
+./a.out
+gtkwave tb_rca.v
+```
+**GTKWave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/RCA_sim.png?raw=true" width="800"/>
+</p>
+
+**Realization of Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/demux_generator_synth.png?raw=true" width="800"/>
+</p>
 
 ---
 
@@ -420,3 +545,6 @@ By the end of Day 5, you will be able to:
 - ✨ Optimize RTL code for better synthesis results in terms of **area, timing, and readability**.  
 
 ---
+
+
+<div align ="center">🚀 End of Day 5</div>
