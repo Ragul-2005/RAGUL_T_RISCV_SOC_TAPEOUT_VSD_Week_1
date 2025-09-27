@@ -91,12 +91,12 @@ end
 </p>
 
 ---
-// 📌 What is a CASE Statement?
-// A CASE statement is used inside an always block to select one of many actions
-// based on the value of a variable. It is similar to a multiplexer in hardware.
+## 📌 What is a CASE Statement?
+- A CASE statement is used inside an always block to select one of many actions
+-based on the value of a variable. It is similar to a multiplexer in hardware.
 
-// ✅ Case statements are written with a register variable and are sensitive to changes
-//    in the input (usually in combinational always block: always @(*)).
+- ✅ Case statements are written with a register variable and are sensitive to changes
+-    in the input (usually in combinational always block: always @(*)).
 
 reg y;
 reg z;
@@ -235,6 +235,60 @@ endmodule
 
 ## 3. 🔹 Labs on "Incomplete Overlapping Case"
 
+### CASE 1: incomplete case statements
+
+**Verilog Code**
+```bash
+module incomp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg y);
+always @ (*)
+begin
+	case(sel)
+		2'b00 : y = i0;
+		2'b01 : y = i1;
+	endcase
+end
+endmodule
+```
+**GTK Wave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/incomp_case_sim.png?raw=true" width="800"/>
+</p>
+
+**When select signal is 00, the output follows i0 and is i1 when the select value is 01. Since the output is undefined for 10 and 11 values, the ouput latches to the previously available value.**
+
+
+**Realization of Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/incomp_case_synth.png?raw=true" width="800"/>
+</p>
+
+**The synthesized design has a D Latch inferred due to incomplete case structure (missing output definition for 2 of the select statements).**
+
+### Case 2: incomplete case statements with default
+
+**Verilog Code**
+```bash
+module incomp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg y);
+always @ (*)
+begin
+	case(sel)
+		2'b00 : y = i0;
+		2'b01 : y = i1;
+	endcase
+end
+endmodule
+```
+**GTK Wave Simulation**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/comp_case_sim.png?raw=true" width="800"/>
+</p>
+
+**When select signal is 00, the output follows i0 and is i1 when the select value is 01. Since the output is undefined for 10 and 11 values, the presence of default sets the output to i2 when the select line is 10 or 11. The ouput will not latch and be a proper combinational circuit. Realization of Logic**
+
+**Realization of Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/comp_case_synth.png?raw=true" width="800"/>
+</p>
 
 
 
