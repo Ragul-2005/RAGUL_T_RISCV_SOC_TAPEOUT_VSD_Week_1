@@ -74,7 +74,7 @@ A **Testbench** is used to apply inputs to the design, monitor outputs, and veri
 - 🌟 Cross-platform support for Windows, Linux, and macOS making it accessible to all developers
 
   <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Iverilog_Simulation_Flow.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/Iverilog_Simulation_Flow.png?raw=true" width="600"/>
 </p>
 
 <div align="center">
@@ -101,7 +101,7 @@ iverilog good_mux.v tb_good_mux.v
 ./a.out
 ```
 <p align="center">
-  <img src="[https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/RTLCode_Run.png?raw=true](https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/RTLCode_Run.png?raw=true)" width="600"/>
+  <img src="[https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/RTLCode_Run.png?raw=true](https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/RTLCode_Run.png?raw=true)" width="600"/>
 </p>
 
 <div align="center">
@@ -113,7 +113,7 @@ iverilog good_mux.v tb_good_mux.v
 gtkwave tb_good_mux.vcd
 ```
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Output_Mux.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/Output_Mux.png?raw=true" width="600"/>
 </p>
 
 <div align="center">
@@ -128,7 +128,7 @@ gtkwave tb_good_mux.vcd
 gvim tb_good_mux.v -o good_mux.v
 ```
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/MUX_Code.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/MUX_Code.png?raw=true" width="600"/>
 </p>
 ### Working
 Inputs: i0, i1 (data), sel (select line)
@@ -141,7 +141,7 @@ Logic: If sel is 1, y gets i1; if sel is 0, y gets i0.
 Yosys is an open-source framework for Verilog RTL synthesis. It’s mainly used in digital design to convert high-level Verilog or SystemVerilog descriptions into a gate-level netlist that can be used for FPGA or ASIC implementation.
 
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Yosys_Setup.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/Yosys_Setup.png?raw=true" width="600"/>
 </p>
 
 ### Features
@@ -181,7 +181,7 @@ Yosys is an open-source framework for Verilog RTL synthesis. It’s mainly used 
  
 ## Verify the Synthesis
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Synthesis_Verify.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/Synthesis_Verify.png?raw=true" width="600"/>
 </p>
 ---
 
@@ -194,7 +194,7 @@ Yosys is an open-source framework for Verilog RTL synthesis. It’s mainly used 
 yosys
 ```
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Yosys.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/Yosys.png?raw=true" width="600"/>
 </p>
 
 ``` bash
@@ -216,7 +216,7 @@ show
 ```
 
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Gate_level.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/Gate_level.png?raw=true" width="600"/>
 </p>
 
 ```bash
@@ -224,7 +224,7 @@ show
 write_verilog good_mux_netlist.v
 ```
 <p align="center">
-  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day1/Images/Netlist.png?raw=true" width="600"/>
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%201/Images/Netlist.png?raw=true" width="600"/>
 </p>
 
 ---
