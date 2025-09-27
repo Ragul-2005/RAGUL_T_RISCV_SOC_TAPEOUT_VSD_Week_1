@@ -88,4 +88,3 @@ I would like to sincerely acknowledge and thank:
 </div>
 ---
 
-✨ This repository is dedicated to **hands-on digital design education** and the belief that *practical knowledge and open-source tools empower engineers to innovate in RTL and ASIC design*.
