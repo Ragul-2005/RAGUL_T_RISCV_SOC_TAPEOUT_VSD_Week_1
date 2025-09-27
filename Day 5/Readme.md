@@ -366,6 +366,7 @@ endgenerate
 ```
 #### ✅ Example: 
 
+```bash
 // ⚙️ Create N AND gates using generate-for loop
 module and_array #(parameter N = 4) (
   input  [N-1:0] A, B,
@@ -379,8 +380,22 @@ module and_array #(parameter N = 4) (
     end
   endgenerate
 endmodule
+```
+
+### Comparision of 🔁for loop and ⚙️for generator:
+
+| 🏷️ Feature              | 🔁 **For Loop** (Behavioral)             | ⚙️ **For-Generate** (RTL)         |
+|--------------------------|------------------------------------------|-----------------------------------|
+| 📍 Location              | Inside `always` / `initial` blocks       | Outside, at **module level**      |
+| 🎯 Purpose               | Used for **simulation, initialization**  | Used for **hardware replication** |
+| 🛠️ Synthesizable         | ❌ No (mostly for sim/testbench)         | ✅ Yes (creates real hardware)     |
+| ⏳ Executes during        | Simulation runtime                      | Elaboration (before simulation)   |
+| 🔄 Variable type          | `integer`                               | `genvar`                          |
+| 🧪 Common usage           | Loops inside testbenches, counters, etc | Repeating logic (gates, modules)  |
+| 📝 Example placement      | `always @(*) begin ... for(...) ... end`| `generate ... for(...) ... endgenerate` |
 
 ---
+
 
 
 
