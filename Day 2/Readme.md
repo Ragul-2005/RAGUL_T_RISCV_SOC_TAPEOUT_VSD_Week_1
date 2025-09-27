@@ -6,11 +6,13 @@
   ---
 
 
-## Table of Content
-1. Introduction to Timing Libraries (.libs) ⏰
-2. Hierarchical vs Flat Synthesis 🏗️
-3. Submodule Synthesis
-4. Various Flop Coding Styles and Optimization 🔄
+## 📚 Table of Contents - Day 2
+
+1. [⏰ Introduction to Timing Libraries (.libs)](#introduction-to-timing-libraries-libs)
+2. [🏗️ Hierarchical vs Flat Synthesis](#hierarchical-vs-flat-synthesis)
+3. [Submodule Synthesis](#submodule-synthesis)
+4. [🔄 Various Flop Coding Styles and Optimization](#various-flop-coding-styles-and-optimization)
+5. [🌅 Summary](#summary)
 
 ---
 
@@ -606,6 +608,35 @@ write_verilog -noattr mul_8_netlist.v
 </p>
 
 The mult8 module multiplies a 3-bit input by 9. During synthesis in Sky130 PDK, the tool optimizes this as a shift-and-add operation (a*9 = (a << 3) + a) instead of a full multiplier. This reduces area 🏗️, power 🔋, and improves timing ⏱️, using just shifts and adders from the standard cell library.
+
+
+## 🌅 Summary 
+
+- **⏰ Timing Libraries (.libs):**  
+  - Explored **SKY130 PDK libraries** and their structure (`sky130_fd_sc_hd__tt_025C_1v80`)  
+  - Learned about **TT corner (Typical-Typical)**, library naming conventions, and technology parameters (voltage ⚡, temperature 🌡️, process 😐)  
+
+- **🏗️ Hierarchical vs Flat Synthesis:**  
+  - **Hierarchical:** Preserves module hierarchy 📦, faster compilation 🚀, easier debugging 🐛, but limits global optimization 📊  
+  - **Flat:** Flattens all modules 🎯, maximizes global optimization ⚡, better timing ⏱️, but slower 🐌 and harder to debug 🐛  
+  - **Comparison:** Trade-offs in compilation time ⏰, memory 💾, optimization quality 🎯, and timing closure ⌛  
+
+- **🔹 Submodule Synthesis:**  
+  - Synthesizes each module independently ⚙️, allows reuse 🔁, speeds up compilation ⏱️, and isolates debugging 🐞  
+
+- **🔄 Various Flop Coding Styles:**  
+  - Reviewed **flip-flops** (D, SR, JK, T) ⌛  
+  - Types of DFFs: basic DFF 📌, async reset 🔄, async reset & set ⚡, sync reset ⏱️  
+  - Benefits: pipelining 🚀, data stability 🧠, signal synchronization 🔗, and higher clock frequency ⏱️  
+
+- **🔧 Synthesis Optimization:**  
+  - Optimized **area 🏗️, timing ⏱️, and power 🔋** using Yosys and SKY130 cells  
+  - Example: **Multiplier modules (mul2 & mult8)** optimized with shift/add operations ➡️ reduces area 🏗️, power 🔋, and improves timing ⏱️  
+
+- **🛠️ Tools Used:**  
+  - **Icarus Verilog (iverilog)** for simulation 🖥️  
+  - **GTKWave** for waveform viewing 📊  
+  - **Yosys** for synthesis and optimization ⚡  
 
 ---
 <div align="center">
