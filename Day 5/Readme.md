@@ -1,8 +1,7 @@
 <div align="center"> <h1> 📘 Day 5 – Optimization in Synthesis </h1></div>
 
-<div align="justify"> 🌟 Content Overview  
-On **Day 5**, we focus on **optimization techniques** in RTL coding and synthesis.  
-You will learn how coding styles such as **if-case constructs, incomplete cases, overlapping cases, and loops** affect synthesized hardware.  
+<div align="justify"> 
+On <b>Day 5</b>, we focus on <b>optimization techniques</b> in RTL coding and synthesis.You will learn how coding styles such as <b>if-case constructs, incomplete cases, overlapping cases, and loops</b> affect synthesized hardware.  
 Hands-on labs will reinforce these concepts with practical Verilog/VHDL examples.  
 </div>
 
