@@ -8,7 +8,7 @@
 
 ## 📋 Table of Content 🧪
 
- 🔧 [1. Introduction to Logic Optimizations 📖](#1-introduction-to-logic-optimizations-📖)
+- 🔧 [1. Introduction to Logic Optimizations 📖](#1-introduction-to-logic-optimizations-📖)
 - ⚡ [2. Combinational Logic Optimizations 🧮](#2-combinational-logic-optimizations-🧮)
 - 🔄 [3. Sequential Logic Optimizations 🕐](#3-sequential-logic-optimizations-🕐)
 - 🎛️ [4. Sequential Optimizations for Unused Outputs 🗑️](#4-sequential-optimizations-for-unused-outputs-🗑️)
