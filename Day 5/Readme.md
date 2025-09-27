@@ -290,6 +290,101 @@ endmodule
   <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/comp_case_synth.png?raw=true" width="800"/>
 </p>
 
+### CASE 3: partial case statement
+
+**Verilog Code**
+```bash
+module incomp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg y);
+always @ (*)
+begin
+	case(sel)
+		2'b00 : y = i0;
+		2'b01 : y = i1;
+	endcase
+end
+endmodule
+```
+
+**Realization of Logic**
+<p align="center">
+  <img src="https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/blob/main/Day%205/Images/partial_design_synth.png?raw=true" width="800"/>
+</p>
+
+---
+
+## 4. 🔹 For Loop and For Generate 
+### 📌 What is a **For Loop**?  
+- 🌀 A **for loop** is a control flow statement used in **testbenches and behavioral blocks**.  
+- 📍 It is **written inside `always` or `initial` blocks**.  
+- 🎯 Mainly used for **simulation, initialization, and repetitive operations**.
+
+#### 📝Syntax
+```bash
+  always @(*) begin
+  for(initialization; condition; update) begin
+    // behavioral code
+  end
+end
+```
+
+#### ✅ Example: 
+```bash
+module sum_array;
+  reg [7:0] arr[0:3];
+  integer i;
+  reg [9:0] total;
+
+  initial begin
+    // 🎲 Initialize values
+    arr[0] = 10; arr[1] = 20; arr[2] = 30; arr[3] = 40;
+  end
+
+  always @(*) begin
+    total = 0;
+    for (i = 0; i < 4; i = i + 1) begin
+      total = total + arr[i]; // 🔁 runs inside always
+    end
+  end
+endmodule
+```
+### 📌 What is a **Loop Generator?**  
+- 🔁 A **loop generator** (`generate for`) is used in **RTL design** to create **repetitive hardware structures automatically**.  
+- 🛠️ It is **synthesizable**, meaning the hardware is actually built during elaboration (before simulation).  
+- 📍 Unlike a normal `for` loop, it is **not written inside `always` or `initial` blocks** — it is used at the **module level**.  
+- ⚡ Commonly used to **instantiate multiple gates, adders, flip-flops, etc.** without manually writing each one.  
+
+---
+
+### 📝 Syntax
+```bash
+genvar i; // 🔁 declare generator variable
+generate
+  for(i = 0; i < N; i = i + 1) begin : label_name
+    // Hardware instantiation or assign
+  end
+endgenerate
+```
+#### ✅ Example: 
+
+// ⚙️ Create N AND gates using generate-for loop
+module and_array #(parameter N = 4) (
+  input  [N-1:0] A, B,
+  output [N-1:0] Y
+);
+
+  genvar i; // 🔁 generator variable
+  generate
+    for(i = 0; i < N; i = i + 1) begin : AND_GEN
+      assign Y[i] = A[i] & B[i]; // 🔌 creates N AND gates
+    end
+  endgenerate
+endmodule
+
+---
+
+
+
+
 
 
 
