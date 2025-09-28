@@ -14,7 +14,6 @@
   <img src="https://img.shields.io/badge/Simulation-ModelSim-green?style=for-the-badge" />
 </div>
 
----https://github.com/Ragul-2005/RAGUL_T_RISCV_SOC_TAPEOUT_VSD_Week_1/tree/a280d65e4187941e6fdf84de19a6e096181f78b3/Day%201
 
 ## 📑 Table of Contents
 
